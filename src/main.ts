@@ -2,6 +2,9 @@ import * as fs from 'fs';
 import * as path from 'path'
 import { Config, CLI } from './cli'
 import { NitroTheme } from './theme'
+import { AstGenerator } from './ast/ast'
+
+
 let NT = new NitroTheme();
 
 //Parse command line args
@@ -18,8 +21,6 @@ if(outOption) {
     filePath = outOption.substring(0, lastSlash + 1);
     mainFileName = outOption.substring(lastSlash + 1, lastDot);
 }
-
-let AstString: string = "";
 
 if(options.inputFiles.length == 0) {
     console.log(NT.Bold() + "nitro: " + NT.Red() + "fatal error: " + NT.Reset() + "no input files")
@@ -39,11 +40,14 @@ if(!fs.existsSync(filePath)) {
 }
 
 //Start code generation
-
+let rawCode = fs.readFileSync(filePath + mainFileName + '.ts', 'utf-8')
+let ASTGen = new AstGenerator(mainFileName + '.ts', rawCode);
+let AST = JSON.parse(ASTGen.generateAST());
+let AstOut = JSON.stringify(AST, null, 2);
 
 //End code generation
 
 //Write final files
 if(options.options.includes('-A')) {
-    fs.writeFileSync(filePath + mainFileName + '.json', AstString);
+    fs.writeFileSync(filePath + mainFileName + '.json', AstOut);
 }
