@@ -3,12 +3,12 @@ import * as path from 'path'
 import { Config, CLI } from './cli'
 import { NitroTheme } from './theme'
 import { AstGenerator } from './ast/ast'
-
+import { Builder } from './builder/builder'
 
 let NT = new NitroTheme();
 
 //Parse command line args
-let cliParser = new CLI(["-o"], ["-A", "-L", "-O"]) //Emit AST Tree, Emit C++ Code, Generate Obj instead of EXE
+let cliParser = new CLI(["-o"], ["-A", "-L", "-O", "-V"]) //Emit AST Tree, Emit C++ Code, Generate Obj instead of EXE, verbose
 let options = cliParser.parseArgs();
 
 //Get mainfile name
@@ -39,11 +39,16 @@ if(!fs.existsSync(filePath)) {
     process.exit(1);
 }
 
-//Start code generation
+// ##### Start code generation #####
+//AST GEN
 let rawCode = fs.readFileSync(filePath + mainFileName + '.ts', 'utf-8')
 let ASTGen = new AstGenerator(mainFileName + '.ts', rawCode);
 let AST = JSON.parse(ASTGen.generateAST());
 let AstOut = JSON.stringify(AST, null, 2);
+
+//Build code
+let builder = new Builder(AST, filePath + mainFileName, false);
+builder.start(mainFileName);
 
 //End code generation
 
