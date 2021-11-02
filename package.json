@@ -1,0 +1,23 @@
+{
+  "name": "nitro-lang",
+  "version": "1.0.0",
+  "description": "Combining high level typing and low level compilation to make typescript like code that runs at bare metal speeds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stropical/nitro-lang.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stropical/nitro-lang/issues"
+  },
+  "homepage": "https://github.com/Stropical/nitro-lang#readme",
+  "dependencies": {
+    "@types/node": "^16.11.6"
+  }
+}
