@@ -25,6 +25,7 @@ export function FunctionHandle(obj, self) {
 export function BlockHandle(obj, self) {
     //Start new builder for block
     let blockBuilder: Builder = new Builder(obj.statements, null, true);
+    if(self.verbose) { blockBuilder.verbose = true; }
 
     obj.statements.forEach(element => {
         blockBuilder.iterate(element, blockBuilder);

@@ -44,7 +44,7 @@ export function VariableDeclarationListHandle(obj, self) {
         CxxVarConstructor(v, self.currentLevel, self);
     }
 
-    console.log(varDecList)
+    if(self.verbose) { console.log(varDecList) }
 }
 
 export function CxxVarConstructor(v: ArcVar, d: DepthLevel, self, param?: boolean) {

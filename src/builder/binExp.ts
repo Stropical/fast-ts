@@ -14,7 +14,7 @@ export function BinExpHandle(obj, self, sub?: boolean) {
         case "Identifier": break;
         case "FirstLiteralToken": LFltFlag = true; break;
         default: 
-            console.log("Sub-expresison")
+            if(self.verbose) { console.log("Sub-expresison") }
             subRight = SubBinExpHandle(obj.right, self);
             break;
     }
@@ -23,7 +23,7 @@ export function BinExpHandle(obj, self, sub?: boolean) {
         case "Identifier": break;
         case "FirstLiteralToken": RFltFlag = true; break;
         default: 
-            console.log("Sub-expresison")
+            if(self.verbose) { console.log("Sub-expresison") }
             subRight = SubBinExpHandle(obj.right, self);
             break;
     }
@@ -50,7 +50,8 @@ export function BinExpHandle(obj, self, sub?: boolean) {
     if(sub) {
         return finalStr;
     } else {
-        console.log("BinaryEXP: " + finalStr);
+        if(self.verbose) { console.log("BinaryEXP: " + finalStr); }
+        
         self.currentBinExp = finalStr;
     }
 

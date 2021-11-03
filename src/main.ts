@@ -11,6 +11,13 @@ let NT = new NitroTheme();
 let cliParser = new CLI(["-o"], ["-A", "-L", "-O", "-V"]) //Emit AST Tree, Emit C++ Code, Generate Obj instead of EXE, verbose
 let options = cliParser.parseArgs();
 
+
+//Check if verbose
+let verbose: boolean = false;
+if(options.options.includes('-V')) {
+    verbose = true;
+}
+
 //Get mainfile name
 let mainFileName: string = "main", filePath: string;
 let outOption: string, outObj: Object = options.options.find(e => e = "-o");
@@ -43,13 +50,14 @@ if(!fs.existsSync(filePath)) {
 
 // ##### Start code generation #####
 //AST GEN
-let rawCode = fs.readFileSync(filePath + mainFileName + '.ts', 'utf-8')
+let rawCode = fs.readFileSync(options.inputFiles[0], 'utf-8')
 let ASTGen = new AstGenerator(mainFileName + '.ts', rawCode);
 let AST = JSON.parse(ASTGen.generateAST());
 let AstOut = JSON.stringify(AST, null, 2);
 
 //Build code
 let builder = new Builder(AST, filePath + mainFileName, false);
+builder.verbose = verbose;
 builder.start(mainFileName);
 
 //End code generation

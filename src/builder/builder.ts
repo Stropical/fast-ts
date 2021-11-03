@@ -23,6 +23,7 @@ export class Builder {
 
     //Flags
     isBlock: boolean = false;
+    verbose: boolean = false;
     outPath: string;
 
     constructor(codeObj: Object, outPath?: string, isBlock?: boolean) {
@@ -37,7 +38,7 @@ export class Builder {
     }
 
     iterate(obj, self) {
-        console.log(obj.kind)
+        if(this.verbose) { console.log(obj.kind) }
         switch(obj.kind) {
             case "SourceFile": SourceFileHandle(obj, self); break;
             case "FirstStatement": FirstStatementHandle(obj, self); break;
