@@ -13,7 +13,9 @@ let options = cliParser.parseArgs();
 
 //Get mainfile name
 let mainFileName: string = "main", filePath: string;
-let outOption: string = options.options.find(e => e = "-o")['-o'];
+let outOption: string, outObj: Object = options.options.find(e => e = "-o");
+if(outObj) { outOption = outObj['-o'] }
+
 if(outOption) {
     let lastSlash = outOption.lastIndexOf('/');
     let lastDot = outOption.lastIndexOf('.');
