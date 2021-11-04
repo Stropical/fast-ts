@@ -1,0 +1,13 @@
+Nitro lang specifications v1.0:
+    Compiler Goals:
+        Global / Functional Variable declaration
+            Literals
+            Binary Expressions
+            Function Calls
+        Variable Types:
+            i32, u32, i8, u8, f32
+        Functions / Function Calls
+            Code Blocks
+            Parameters
+            Return Statements
+

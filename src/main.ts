@@ -4,6 +4,7 @@ import { Config, CLI } from './cli'
 import { NitroTheme } from './theme'
 import { AstGenerator } from './ast/ast'
 import { Builder } from './builder/builder'
+import { Assembler } from './asm/assembler'
 
 let NT = new NitroTheme();
 
@@ -59,6 +60,9 @@ let AstOut = JSON.stringify(AST, null, 2);
 let builder = new Builder(AST, filePath + mainFileName, false);
 builder.verbose = verbose;
 builder.start(mainFileName);
+
+let asmGen = new Assembler(filePath);
+asmGen.constructObjs();
 
 //End code generation
 
