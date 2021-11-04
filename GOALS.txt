@@ -10,4 +10,6 @@ Nitro lang specifications v1.0:
             Code Blocks
             Parameters
             Return Statements
+        Error Catches
+            
 

@@ -4,7 +4,7 @@
   "description": "Combining high level typing and low level compilation to make typescript like code that runs at bare metal speeds",
   "main": "index.js",
   "scripts": {
-    "test": "node dist/main.js test/test1.ts -o test/test1.o -A",
+    "test": "node dist/main.js test/test1.ts -o test/test1.o -A -V",
     "build": "tsc"
   },
   "repository": {

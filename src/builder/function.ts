@@ -39,7 +39,7 @@ export function BlockHandle(obj, self) {
 
 export function ReturnHandle(obj, self) {
     switch (obj.expression.kind) {
-        case "Identifier": self.construct.addReturn(obj.expression, self, obj.escapedText);
+        case "Identifier": self.construct.addReturn(obj.expression, self, obj.expression.escapedText); break;
         case "BinaryExpression": 
             self.iterate(obj.expression, self);
             self.construct.addReturn(obj.expression, self, self.currentBinExp);
