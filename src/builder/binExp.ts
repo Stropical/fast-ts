@@ -60,6 +60,8 @@ export function BinExpHandle(obj, self, sub?: boolean) {
 function OpHandle(op) {
     switch(op) {
         case "PlusToken": return "+"; break;
+        case "MinusToken": return "-"; break;
+        case "LessThanEqualsToken": return "<="; break;
     }
 }
 

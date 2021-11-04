@@ -7,6 +7,7 @@ import { FunctionHandle, BlockHandle, ReturnHandle, CallHandle, ExpressionStatem
 import { CodeConstructor } from './contructor'
 import { DepthLevel, DepthClass } from './util'
 import { BinExpHandle } from './binExp'
+import { IfHandle } from './conditional'
 
 export class Builder {
     //Main sources
@@ -50,6 +51,7 @@ export class Builder {
             case "BinaryExpression": BinExpHandle(obj, self); break;
             case "ExpressionStatement": ExpressionStatementHandle(obj, self); break;
             case "CallExpression": CallHandle(obj, self); break;
+            case "IfStatement": IfHandle(obj, self)
             default: "Type unknown: " + obj.kind;
         }
     }

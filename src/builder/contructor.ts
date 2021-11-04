@@ -33,6 +33,14 @@ export class CodeConstructor {
         this.codeStr += ";\r\n";
     }
 
+    addIfStatement(condition:string, innerCode: string) {
+        this.codeStr += "if (" + condition + ") { \r\n";     
+    }
+
+    finishIf() {
+        this.codeStr += "} \r\n";
+    }
+
     addFunction(name: string, innerCode: string, params?: Array<ArcVar>, returnType?: string) {
         //Assemble parameter string
         let dc = new DepthLevel()
@@ -60,6 +68,10 @@ export class CodeConstructor {
         this.codeStr += rtType + ' ' + name + ' (' + paramStr + ') {\r\n'
         this.codeStr += innerCode + '\r\n';
         this.codeStr += '}\r\n'
+    }
+
+    writeStraightCode(innerCode: string) {
+        this.codeStr += innerCode
     }
     
     finalizeFile() {

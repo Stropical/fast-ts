@@ -17,13 +17,14 @@ export function FunctionHandle(obj, self) {
         if(type == "TypeReference") {
             type = obj.type.typeName.escapedText;
         } 
-        self.currentFuncParams.push(new ArcVar(element.name.escapedText, type))
+        self.currentFuncParams.push(new ArcVar(element.name.escapedText, type, ))
     });
     self.iterate(obj.body, self);
 }
 
-export function BlockHandle(obj, self) {
+export function BlockHandle(obj, self, funcType: Boolean = true) {
     //Start new builder for block
+    
     let blockBuilder: Builder = new Builder(obj.statements, null, true);
     if(self.verbose) { blockBuilder.verbose = true; }
 
@@ -33,8 +34,12 @@ export function BlockHandle(obj, self) {
 
     let blockCode = blockBuilder.finish('Block1');
 
-    self.construct.addFunction(self.currentFuncName, blockCode, self.currentFuncParams, self.currentReturnType)
-    self.currentFuncParams = []; //Reset params
+    if(funcType) {
+        self.construct.addFunction(self.currentFuncName, blockCode, self.currentFuncParams, self.currentReturnType)
+        self.currentFuncParams = []; //Reset params
+    } else {
+        self.construct.writeStraightCode(blockCode);
+    }
 }
 
 export function ReturnHandle(obj, self) {

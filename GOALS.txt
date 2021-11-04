@@ -10,6 +10,8 @@ Nitro lang specifications v1.0:
             Code Blocks
             Parameters
             Return Statements
+        If Statements
+        For Loops
         Error Catches
-            
+
 
