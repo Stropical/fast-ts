@@ -13,6 +13,7 @@ export class CodeConstructor {
     initCodeFile() {
         this.codeStr += '// ARCC Generated Code\r\n'
         this.codeStr += '// Version 1.0.0 \r\n'
+        this.codeStr += '\r\n'
         this.codeStr += '#include "arc.hpp"\r\n'
         this.codeStr += '\r\n'
     }

@@ -53,14 +53,23 @@ export function ReturnHandle(obj, self) {
     }
 }
 
-export function CallHandle(obj, self) {
+export function CallHandle(obj, self, subCall?: boolean) {
     console.log("Call Handle")
     let funcName = obj.expression.escapedText;
     let args = [];
+    subCall = false;
+
     obj.arguments.forEach(element => {
         switch(element.kind) {
             case "Identifier": break;
             case "FirstLiteralToken": args.push(element.text); break;
+            case "BinaryExpression": args.push(BinExpHandle(element, self, true)); break;
+            case "CallExpression": 
+                subCall = true;
+                self.isCallExpression = true;
+                CallHandle(element, self);
+                args.push(self.currentBinExp)
+                self.isCallExpression = false;
         }
     });
 
@@ -70,7 +79,6 @@ export function CallHandle(obj, self) {
     } else {
         self.currentBinExp = CallHandleCxxObj(funcName, args);
     }
-    
 }
 
 export function ExpressionStatementHandle(obj, self) {

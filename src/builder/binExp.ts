@@ -1,3 +1,5 @@
+import { CallHandle } from './function'
+
 export function BinExpHandle(obj, self, sub?: boolean) {
     let left = obj.left;
     let right = obj.right;
@@ -8,45 +10,55 @@ export function BinExpHandle(obj, self, sub?: boolean) {
 
     let RFltFlag: boolean = false, LFltFlag: boolean = false;
 
-    
+    let leftRaw: string, rightRaw: string;
 
     switch(obj.left.kind) {
         case "Identifier": break;
         case "FirstLiteralToken": LFltFlag = true; break;
+        case "CallExpression": 
+            self.isCallExpression = true;
+            CallHandle(obj.left, self);
+            subLeft = self.currentBinExp;
+        break;
         default: 
             if(self.verbose) { console.log("Sub-expresison") }
-            subRight = SubBinExpHandle(obj.right, self);
+            subLeft = SubBinExpHandle(obj.right, self);
             break;
     }
+
+    //Reset flags
 
     switch(obj.right.kind) {
         case "Identifier": break;
         case "FirstLiteralToken": RFltFlag = true; break;
+        case "CallExpression": 
+            self.isCallExpression = true;
+            CallHandle(obj.right, self);
+            subRight = self.currentBinExp;
+            self.isCallExpression = false;
+        break;
         default: 
             if(self.verbose) { console.log("Sub-expresison") }
             subRight = SubBinExpHandle(obj.right, self);
             break;
     }
 
-    let leftRaw: string;
+    //Check if value is stored in .text or .escapedText
     if(LFltFlag) { leftRaw = left.text } else { leftRaw = left.escapedText }
-
-    let rightRaw: string;
     if(RFltFlag) { rightRaw = right.text } else { rightRaw = right.escapedText }
     
 
-    if(subLeft) {
+    if(subLeft && !subRight) {
         finalStr = subLeft + " " + OpHandle(op.kind) + " " + rightRaw;
-    } else if (subRight) {
+    } else if (subRight && !subLeft) {
         finalStr = leftRaw + " " + OpHandle(op.kind) + " " + subRight;
     } else if (subLeft && subRight) {
         finalStr = subLeft + " " + OpHandle(op.kind) + " " + subRight;
     } else {
-        
         finalStr = leftRaw + " " + OpHandle(op.kind) + " " + rightRaw;
     }
 
-    
+    console.log("FINAL STR: " + finalStr)
     if(sub) {
         return finalStr;
     } else {

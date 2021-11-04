@@ -1,6 +1,6 @@
 {
   "pos": 0,
-  "end": 164,
+  "end": 150,
   "kind": "SourceFile",
   "statements": [
     {
@@ -211,55 +211,42 @@
     },
     {
       "pos": 120,
-      "end": 142,
+      "end": 135,
       "kind": "ExpressionStatement",
       "expression": {
         "pos": 120,
-        "end": 141,
+        "end": 134,
         "kind": "CallExpression",
         "expression": {
           "pos": 120,
-          "end": 133,
-          "kind": "PropertyAccessExpression",
-          "expression": {
-            "pos": 120,
-            "end": 129,
-            "kind": "Identifier",
-            "escapedText": "console",
-            "id": 35
-          },
-          "name": {
-            "pos": 130,
-            "end": 133,
-            "kind": "Identifier",
-            "escapedText": "log",
-            "id": 36
-          },
+          "end": 126,
+          "kind": "Identifier",
+          "escapedText": "cout",
           "id": 34
         },
         "arguments": [
           {
-            "pos": 134,
-            "end": 140,
+            "pos": 127,
+            "end": 133,
             "kind": "CallExpression",
             "expression": {
-              "pos": 134,
-              "end": 137,
+              "pos": 127,
+              "end": 130,
               "kind": "Identifier",
               "escapedText": "fib",
-              "id": 38
+              "id": 36
             },
             "arguments": [
               {
-                "pos": 138,
-                "end": 139,
+                "pos": 131,
+                "end": 132,
                 "kind": "FirstLiteralToken",
                 "text": "1",
                 "numericLiteralFlags": 0,
-                "id": 39
+                "id": 37
               }
             ],
-            "id": 37
+            "id": 35
           }
         ],
         "id": 33
@@ -267,68 +254,55 @@
       "id": 32
     },
     {
-      "pos": 142,
-      "end": 163,
+      "pos": 135,
+      "end": 149,
       "kind": "ExpressionStatement",
       "expression": {
-        "pos": 142,
-        "end": 162,
+        "pos": 135,
+        "end": 148,
         "kind": "CallExpression",
         "expression": {
-          "pos": 142,
-          "end": 154,
-          "kind": "PropertyAccessExpression",
-          "expression": {
-            "pos": 142,
-            "end": 150,
-            "kind": "Identifier",
-            "escapedText": "console",
-            "id": 43
-          },
-          "name": {
-            "pos": 151,
-            "end": 154,
-            "kind": "Identifier",
-            "escapedText": "log",
-            "id": 44
-          },
-          "id": 42
+          "pos": 135,
+          "end": 140,
+          "kind": "Identifier",
+          "escapedText": "cout",
+          "id": 40
         },
         "arguments": [
           {
-            "pos": 155,
-            "end": 161,
+            "pos": 141,
+            "end": 147,
             "kind": "CallExpression",
             "expression": {
-              "pos": 155,
-              "end": 158,
+              "pos": 141,
+              "end": 144,
               "kind": "Identifier",
               "escapedText": "fib",
-              "id": 46
+              "id": 42
             },
             "arguments": [
               {
-                "pos": 159,
-                "end": 160,
+                "pos": 145,
+                "end": 146,
                 "kind": "FirstLiteralToken",
                 "text": "3",
                 "numericLiteralFlags": 0,
-                "id": 47
+                "id": 43
               }
             ],
-            "id": 45
+            "id": 41
           }
         ],
-        "id": 41
+        "id": 39
       },
-      "id": 40
+      "id": 38
     }
   ],
   "endOfFileToken": {
-    "pos": 163,
-    "end": 164,
+    "pos": 149,
+    "end": 150,
     "kind": "EndOfFileToken",
-    "id": 48
+    "id": 44
   },
   "fileName": "fib.ts",
   "languageVersion": 99,
@@ -342,8 +316,8 @@
   "typeReferenceDirectives": [],
   "libReferenceDirectives": [],
   "amdDependencies": [],
-  "nodeCount": 49,
-  "identifierCount": 15,
+  "nodeCount": 45,
+  "identifierCount": 13,
   "identifiers": {},
   "parseDiagnostics": [],
   "id": 1
