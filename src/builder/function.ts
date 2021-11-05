@@ -45,7 +45,42 @@ export function ReturnHandle(obj, self) {
             self.construct.addReturn(obj.expression, self, self.currentBinExp);
             self.currentBinExp = "";
             break;
+    }
+}
 
+export function CallHandle(obj, self) {
+    console.log("Call Handle")
+    let funcName = obj.expression.escapedText;
+    let args = [];
+    obj.arguments.forEach(element => {
+        switch(element.kind) {
+            case "Identifier": break;
+            case "FirstLiteralToken": args.push(element.text); break;
+        }
+    });
+
+    if(self.isExpression) { 
+        self.isExpression = false;
+        self.construct.addCallFunc(CallHandleCxxObj(funcName, args), true);
+    } else {
+        self.currentBinExp = CallHandleCxxObj(funcName, args);
     }
     
+}
+
+export function ExpressionStatementHandle(obj, self) {
+    self.isExpression = true;
+    self.iterate(obj.expression, self);
+}
+
+function CallHandleCxxObj(name: string, args: Array<string>) {
+    let argsStr: string = "";
+    for(var i = 0; i < args.length; i++) {
+        argsStr += args[i];
+        if(i < args.length - 1) {  //Check if not last, then add comma
+            argsStr += ', '
+        } 
+    }
+
+    return name + '(' + argsStr + ')'
 }

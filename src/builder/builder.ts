@@ -3,7 +3,7 @@
 import * as fs from 'fs'
 import { SourceFileHandle, FirstStatementHandle } from './containers'
 import { VariableDeclarationListHandle, ArcVar } from './variables'
-import { FunctionHandle, BlockHandle, ReturnHandle } from './function'
+import { FunctionHandle, BlockHandle, ReturnHandle, CallHandle, ExpressionStatementHandle } from './function'
 import { CodeConstructor } from './contructor'
 import { DepthLevel, DepthClass } from './util'
 import { BinExpHandle } from './binExp'
@@ -23,6 +23,7 @@ export class Builder {
 
     //Flags
     isBlock: boolean = false;
+    isExpression: boolean = false;
     verbose: boolean = false;
     outPath: string;
 
@@ -47,6 +48,8 @@ export class Builder {
             case "Block": BlockHandle(obj, self); break;
             case "ReturnStatement": ReturnHandle(obj, self); break;
             case "BinaryExpression": BinExpHandle(obj, self); break;
+            case "ExpressionStatement": ExpressionStatementHandle(obj, self); break;
+            case "CallExpression": CallHandle(obj, self); break;
             default: "Type unknown: " + obj.kind;
         }
     }

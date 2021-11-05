@@ -9,7 +9,8 @@ return x + (y + y);
 
 }
 int main () {
-i32 z;
+sum(10, 11);
+i32 z = sum(1, 2);
 i32 z2 = 1 + 2;
 return undefined;
 return ;

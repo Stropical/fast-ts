@@ -17,6 +17,12 @@ export class CodeConstructor {
         this.codeStr += '\r\n'
     }
 
+    addCallFunc(innerCode: string, eol: boolean) {
+        this.codeStr += innerCode;
+        if(eol) { this.codeStr += ";\r\n" }
+        
+    }
+
     addGlobal(str: string) {
         this.codeStr += str + "\r\n";
     }
@@ -44,8 +50,7 @@ export class CodeConstructor {
             paramStr += paramStrs[i];
             if(i < params.length - 1) {  //Check if not last, then add comma
                 paramStr += ', '
-            }
-            
+            } 
         } 
         
 

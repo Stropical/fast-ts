@@ -1,6 +1,6 @@
 {
   "pos": 0,
-  "end": 209,
+  "end": 226,
   "kind": "SourceFile",
   "statements": [
     {
@@ -250,7 +250,7 @@
     },
     {
       "pos": 116,
-      "end": 209,
+      "end": 226,
       "kind": "FunctionDeclaration",
       "name": {
         "pos": 126,
@@ -275,74 +275,40 @@
       },
       "body": {
         "pos": 138,
-        "end": 209,
+        "end": 226,
         "kind": "Block",
         "statements": [
           {
             "pos": 140,
-            "end": 168,
-            "kind": "FirstStatement",
-            "declarationList": {
+            "end": 157,
+            "kind": "ExpressionStatement",
+            "expression": {
               "pos": 140,
-              "end": 167,
-              "kind": "VariableDeclarationList",
-              "declarations": [
+              "end": 156,
+              "kind": "CallExpression",
+              "expression": {
+                "pos": 140,
+                "end": 148,
+                "kind": "Identifier",
+                "escapedText": "sum",
+                "id": 46
+              },
+              "arguments": [
                 {
-                  "pos": 148,
-                  "end": 167,
-                  "kind": "VariableDeclaration",
-                  "name": {
-                    "pos": 148,
-                    "end": 150,
-                    "kind": "Identifier",
-                    "escapedText": "z",
-                    "id": 47
-                  },
-                  "initializer": {
-                    "pos": 157,
-                    "end": 167,
-                    "kind": "CallExpression",
-                    "expression": {
-                      "pos": 157,
-                      "end": 161,
-                      "kind": "Identifier",
-                      "escapedText": "sum",
-                      "id": 51
-                    },
-                    "arguments": [
-                      {
-                        "pos": 162,
-                        "end": 163,
-                        "kind": "FirstLiteralToken",
-                        "text": "1",
-                        "numericLiteralFlags": 0,
-                        "id": 52
-                      },
-                      {
-                        "pos": 164,
-                        "end": 166,
-                        "kind": "FirstLiteralToken",
-                        "text": "2",
-                        "numericLiteralFlags": 0,
-                        "id": 53
-                      }
-                    ],
-                    "id": 50
-                  },
-                  "type": {
-                    "pos": 151,
-                    "end": 155,
-                    "kind": "TypeReference",
-                    "typeName": {
-                      "pos": 151,
-                      "end": 155,
-                      "kind": "Identifier",
-                      "escapedText": "i32",
-                      "id": 49
-                    },
-                    "id": 48
-                  },
-                  "id": 46
+                  "pos": 149,
+                  "end": 151,
+                  "kind": "FirstLiteralToken",
+                  "text": "10",
+                  "numericLiteralFlags": 0,
+                  "id": 47
+                },
+                {
+                  "pos": 152,
+                  "end": 155,
+                  "kind": "FirstLiteralToken",
+                  "text": "11",
+                  "numericLiteralFlags": 0,
+                  "id": 48
                 }
               ],
               "id": 45
@@ -350,85 +316,156 @@
             "id": 44
           },
           {
-            "pos": 168,
-            "end": 193,
+            "pos": 157,
+            "end": 185,
             "kind": "FirstStatement",
             "declarationList": {
-              "pos": 168,
-              "end": 192,
+              "pos": 157,
+              "end": 184,
               "kind": "VariableDeclarationList",
               "declarations": [
                 {
-                  "pos": 176,
-                  "end": 192,
+                  "pos": 165,
+                  "end": 184,
                   "kind": "VariableDeclaration",
                   "name": {
-                    "pos": 176,
-                    "end": 179,
+                    "pos": 165,
+                    "end": 167,
                     "kind": "Identifier",
-                    "escapedText": "z2",
-                    "id": 57
+                    "escapedText": "z",
+                    "id": 52
                   },
                   "initializer": {
-                    "pos": 186,
-                    "end": 192,
+                    "pos": 174,
+                    "end": 184,
+                    "kind": "CallExpression",
+                    "expression": {
+                      "pos": 174,
+                      "end": 178,
+                      "kind": "Identifier",
+                      "escapedText": "sum",
+                      "id": 56
+                    },
+                    "arguments": [
+                      {
+                        "pos": 179,
+                        "end": 180,
+                        "kind": "FirstLiteralToken",
+                        "text": "1",
+                        "numericLiteralFlags": 0,
+                        "id": 57
+                      },
+                      {
+                        "pos": 181,
+                        "end": 183,
+                        "kind": "FirstLiteralToken",
+                        "text": "2",
+                        "numericLiteralFlags": 0,
+                        "id": 58
+                      }
+                    ],
+                    "id": 55
+                  },
+                  "type": {
+                    "pos": 168,
+                    "end": 172,
+                    "kind": "TypeReference",
+                    "typeName": {
+                      "pos": 168,
+                      "end": 172,
+                      "kind": "Identifier",
+                      "escapedText": "i32",
+                      "id": 54
+                    },
+                    "id": 53
+                  },
+                  "id": 51
+                }
+              ],
+              "id": 50
+            },
+            "id": 49
+          },
+          {
+            "pos": 185,
+            "end": 210,
+            "kind": "FirstStatement",
+            "declarationList": {
+              "pos": 185,
+              "end": 209,
+              "kind": "VariableDeclarationList",
+              "declarations": [
+                {
+                  "pos": 193,
+                  "end": 209,
+                  "kind": "VariableDeclaration",
+                  "name": {
+                    "pos": 193,
+                    "end": 196,
+                    "kind": "Identifier",
+                    "escapedText": "z2",
+                    "id": 62
+                  },
+                  "initializer": {
+                    "pos": 203,
+                    "end": 209,
                     "kind": "BinaryExpression",
                     "left": {
-                      "pos": 186,
-                      "end": 188,
+                      "pos": 203,
+                      "end": 205,
                       "kind": "FirstLiteralToken",
                       "text": "1",
                       "numericLiteralFlags": 0,
-                      "id": 61
+                      "id": 66
                     },
                     "operatorToken": {
-                      "pos": 188,
-                      "end": 190,
+                      "pos": 205,
+                      "end": 207,
                       "kind": "PlusToken",
-                      "id": 62
+                      "id": 67
                     },
                     "right": {
-                      "pos": 190,
-                      "end": 192,
+                      "pos": 207,
+                      "end": 209,
                       "kind": "FirstLiteralToken",
                       "text": "2",
                       "numericLiteralFlags": 0,
-                      "id": 63
+                      "id": 68
                     },
-                    "id": 60
+                    "id": 65
                   },
                   "type": {
-                    "pos": 180,
-                    "end": 184,
+                    "pos": 197,
+                    "end": 201,
                     "kind": "TypeReference",
                     "typeName": {
-                      "pos": 180,
-                      "end": 184,
+                      "pos": 197,
+                      "end": 201,
                       "kind": "Identifier",
                       "escapedText": "i32",
-                      "id": 59
+                      "id": 64
                     },
-                    "id": 58
+                    "id": 63
                   },
-                  "id": 56
+                  "id": 61
                 }
               ],
-              "id": 55
+              "id": 60
             },
-            "id": 54
+            "id": 59
           },
           {
-            "pos": 193,
-            "end": 207,
+            "pos": 210,
+            "end": 224,
             "kind": "ReturnStatement",
             "expression": {
-              "pos": 204,
-              "end": 206,
+              "pos": 221,
+              "end": 223,
               "kind": "Identifier",
               "escapedText": "z",
-              "id": 65
+              "id": 70
             },
-            "id": 64
+            "id": 69
           }
         ],
         "multiLine": true,
@@ -438,12 +475,12 @@
     }
   ],
   "endOfFileToken": {
-    "pos": 209,
-    "end": 209,
+    "pos": 226,
+    "end": 226,
     "kind": "EndOfFileToken",
-    "id": 66
+    "id": 71
   },
-  "fileName": "test1.ts",
+  "fileName": "test.ts",
   "languageVersion": 99,
   "languageVariant": 0,
   "scriptKind": 3,
@@ -455,8 +492,8 @@
   "typeReferenceDirectives": [],
   "libReferenceDirectives": [],
   "amdDependencies": [],
-  "nodeCount": 68,
-  "identifierCount": 24,
+  "nodeCount": 73,
+  "identifierCount": 25,
   "identifiers": {},
   "parseDiagnostics": [],
   "id": 1

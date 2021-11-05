@@ -33,6 +33,10 @@ export function VariableDeclarationListHandle(obj, self) {
                 v.literal = self.currentBinExp;
                 self.currentBinExp = "";
                 break;
+            case "CallExpression":
+                self.iterate(obj.declarations[i].initializer, self);
+                v.literal = self.currentBinExp;
+                break;
     
         }
 
