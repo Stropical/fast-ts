@@ -10,8 +10,8 @@ export class Assembler {
     }
 
     constructObjs() {
-        fs.copyFileSync('./src/asm/common.mk', this.outPath + 'common.mk');
-        let formatter = exec('make ' + this.outPath + 'common.mk', (error, stdout, stderr) => {
+        fs.copyFileSync('./src/asm/Makefile', this.outPath + 'Makefile');
+        let formatter = exec('cd ' + this.outPath + ' && make ', (error, stdout, stderr) => {
             if (error) {
                 console.error(`exec error: ${error}`);
                 return;

@@ -57,7 +57,6 @@ export function CallHandle(obj, self, subCall?: boolean) {
     console.log("Call Handle")
     let funcName = obj.expression.escapedText;
     let args = [];
-    subCall = false;
 
     obj.arguments.forEach(element => {
         switch(element.kind) {
@@ -65,17 +64,15 @@ export function CallHandle(obj, self, subCall?: boolean) {
             case "FirstLiteralToken": args.push(element.text); break;
             case "BinaryExpression": args.push(BinExpHandle(element, self, true)); break;
             case "CallExpression": 
-                subCall = true;
-                self.isCallExpression = true;
-                CallHandle(element, self);
-                args.push(self.currentBinExp)
-                self.isCallExpression = false;
+                args.push(CallHandle(element, self, true))
         }
     });
 
-    if(self.isExpression) { 
+    if(self.isExpression && !subCall) { 
         self.isExpression = false;
         self.construct.addCallFunc(CallHandleCxxObj(funcName, args), true);
+    } else if(subCall) {
+        return CallHandleCxxObj(funcName, args);;
     } else {
         self.currentBinExp = CallHandleCxxObj(funcName, args);
     }

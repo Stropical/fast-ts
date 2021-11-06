@@ -3,13 +3,15 @@
 
 #include "arc.hpp"
 
-NumberKeyword fib (ArcNumber n) {
+int fib (int n) {
 if (n <= 1) { 
 return n;
 } 
 return fib(n - 1) + fib(n - 2);
 
 }
-fib(1);
-cout()fib(3);
-cout()
+int main () {
+nprint(fib(1));
+nprint(fib(3));
+
+}

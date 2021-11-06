@@ -1,6 +1,5 @@
 
-
-function fib(n: number): number {
+function fib(n: int): int {
     if (n <= 1) {
         return n;
     }
@@ -8,5 +7,9 @@ function fib(n: number): number {
     return fib(n-1) + fib(n-2);
 }
 
-cout(fib(1));
-cout(fib(3));
+function main(): int {
+    nprint(fib(1));
+    nprint(fib(3));
+}   
+
+

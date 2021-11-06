@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node dist/main.js test/fib.ts -o test/fib.o -A -V",
-    "build": "tsc"
+    "build": "tsc",
+    "build-lib": "cd lib && make",
+    "build-proj": "cd test && make common.mk"
   },
   "repository": {
     "type": "git",
