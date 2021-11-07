@@ -12,7 +12,6 @@ let NT = new NitroTheme();
 let cliParser = new CLI(["-o"], ["-A", "-L", "-O", "-V"]) //Emit AST Tree, Emit C++ Code, Generate Obj instead of EXE, verbose
 let options = cliParser.parseArgs();
 
-
 //Check if verbose
 let verbose: boolean = false;
 if(options.options.includes('-V')) {

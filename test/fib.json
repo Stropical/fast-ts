@@ -1,6 +1,6 @@
 {
   "pos": 0,
-  "end": 185,
+  "end": 227,
   "kind": "SourceFile",
   "statements": [
     {
@@ -225,7 +225,7 @@
     },
     {
       "pos": 113,
-      "end": 179,
+      "end": 221,
       "kind": "FunctionDeclaration",
       "name": {
         "pos": 123,
@@ -250,7 +250,7 @@
       },
       "body": {
         "pos": 135,
-        "end": 179,
+        "end": 221,
         "kind": "Block",
         "statements": [
           {
@@ -340,6 +340,94 @@
               "id": 46
             },
             "id": 45
+          },
+          {
+            "pos": 177,
+            "end": 198,
+            "kind": "ExpressionStatement",
+            "expression": {
+              "pos": 177,
+              "end": 197,
+              "kind": "CallExpression",
+              "expression": {
+                "pos": 177,
+                "end": 188,
+                "kind": "Identifier",
+                "escapedText": "nprint",
+                "id": 53
+              },
+              "arguments": [
+                {
+                  "pos": 189,
+                  "end": 196,
+                  "kind": "CallExpression",
+                  "expression": {
+                    "pos": 189,
+                    "end": 192,
+                    "kind": "Identifier",
+                    "escapedText": "fib",
+                    "id": 55
+                  },
+                  "arguments": [
+                    {
+                      "pos": 193,
+                      "end": 195,
+                      "kind": "FirstLiteralToken",
+                      "text": "10",
+                      "numericLiteralFlags": 0,
+                      "id": 56
+                    }
+                  ],
+                  "id": 54
+                }
+              ],
+              "id": 52
+            },
+            "id": 51
+          },
+          {
+            "pos": 198,
+            "end": 219,
+            "kind": "ExpressionStatement",
+            "expression": {
+              "pos": 198,
+              "end": 218,
+              "kind": "CallExpression",
+              "expression": {
+                "pos": 198,
+                "end": 209,
+                "kind": "Identifier",
+                "escapedText": "nprint",
+                "id": 59
+              },
+              "arguments": [
+                {
+                  "pos": 210,
+                  "end": 217,
+                  "kind": "CallExpression",
+                  "expression": {
+                    "pos": 210,
+                    "end": 213,
+                    "kind": "Identifier",
+                    "escapedText": "fib",
+                    "id": 61
+                  },
+                  "arguments": [
+                    {
+                      "pos": 214,
+                      "end": 216,
+                      "kind": "FirstLiteralToken",
+                      "text": "20",
+                      "numericLiteralFlags": 0,
+                      "id": 62
+                    }
+                  ],
+                  "id": 60
+                }
+              ],
+              "id": 58
+            },
+            "id": 57
           }
         ],
         "multiLine": true,
@@ -349,10 +437,10 @@
     }
   ],
   "endOfFileToken": {
-    "pos": 179,
-    "end": 185,
+    "pos": 221,
+    "end": 227,
     "kind": "EndOfFileToken",
-    "id": 51
+    "id": 63
   },
   "fileName": "fib.ts",
   "languageVersion": 99,
@@ -366,8 +454,8 @@
   "typeReferenceDirectives": [],
   "libReferenceDirectives": [],
   "amdDependencies": [],
-  "nodeCount": 53,
-  "identifierCount": 18,
+  "nodeCount": 65,
+  "identifierCount": 22,
   "identifiers": {},
   "parseDiagnostics": [],
   "id": 1

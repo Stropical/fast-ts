@@ -10,6 +10,8 @@ function fib(n: int): int {
 function main(): int {
     nprint(fib(1));
     nprint(fib(3));
+    nprint(fib(10));
+    nprint(fib(20));
 }   
 
 

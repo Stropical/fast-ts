@@ -13,5 +13,7 @@ return fib(n - 1) + fib(n - 2);
 int main () {
 nprint(fib(1));
 nprint(fib(3));
+nprint(fib(10));
+nprint(fib(20));
 
 }

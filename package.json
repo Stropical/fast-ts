@@ -4,7 +4,8 @@
   "description": "Combining high level typing and low level compilation to make typescript like code that runs at bare metal speeds",
   "main": "index.js",
   "scripts": {
-    "test": "node dist/main.js test/fib.ts -o test/fib.o -A -V",
+    "test": "jest",
+    "main": "node dist/main.js test/fib.ts -o test/fib.o -A -V",
     "build": "tsc",
     "build-lib": "cd lib && make",
     "build-proj": "cd test && make common.mk"
@@ -22,6 +23,12 @@
   "homepage": "https://github.com/Stropical/nitro-lang#readme",
   "dependencies": {
     "@types/node": "^16.11.6",
+    "pkg": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
   }
 }
