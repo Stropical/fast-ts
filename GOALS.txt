@@ -1,3 +1,5 @@
+Fast T
+
 Nitro lang specifications v1.0:
     Compiler Goals:
         Global / Functional Variable declaration
