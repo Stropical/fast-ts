@@ -1,6 +1,8 @@
-let x: int = 10;
-let y: int = 20;
+let x: number = 10;
+let y: number = 20;
 
-function main(): int {
-    nprint(x + y)
+function main(): number {
+    console.log(x + y);
+
+    return 0;
 }

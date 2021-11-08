@@ -1,6 +1,6 @@
 {
   "pos": 0,
-  "end": 219,
+  "end": 248,
   "kind": "SourceFile",
   "statements": [
     {
@@ -211,167 +211,206 @@
     },
     {
       "pos": 119,
-      "end": 213,
+      "end": 148,
+      "kind": "FirstStatement",
+      "declarationList": {
+        "pos": 119,
+        "end": 147,
+        "kind": "VariableDeclarationList",
+        "declarations": [
+          {
+            "pos": 124,
+            "end": 147,
+            "kind": "VariableDeclaration",
+            "name": {
+              "pos": 124,
+              "end": 130,
+              "kind": "Identifier",
+              "escapedText": "debug",
+              "id": 35
+            },
+            "initializer": {
+              "pos": 141,
+              "end": 147,
+              "kind": "FalseKeyword",
+              "id": 37
+            },
+            "type": {
+              "pos": 131,
+              "end": 139,
+              "kind": "BooleanKeyword",
+              "id": 36
+            },
+            "id": 34
+          }
+        ],
+        "id": 33
+      },
+      "id": 32
+    },
+    {
+      "pos": 148,
+      "end": 242,
       "kind": "FunctionDeclaration",
       "name": {
-        "pos": 129,
-        "end": 134,
+        "pos": 158,
+        "end": 163,
         "kind": "Identifier",
         "escapedText": "main",
-        "id": 33
+        "id": 39
       },
       "parameters": [],
       "type": {
-        "pos": 137,
-        "end": 144,
+        "pos": 166,
+        "end": 173,
         "kind": "NumberKeyword",
-        "id": 34
+        "id": 40
       },
       "body": {
-        "pos": 144,
-        "end": 213,
+        "pos": 173,
+        "end": 242,
         "kind": "Block",
         "statements": [
           {
-            "pos": 146,
-            "end": 171,
+            "pos": 175,
+            "end": 200,
             "kind": "ExpressionStatement",
             "expression": {
-              "pos": 146,
-              "end": 170,
+              "pos": 175,
+              "end": 199,
               "kind": "CallExpression",
               "expression": {
-                "pos": 146,
-                "end": 162,
+                "pos": 175,
+                "end": 191,
                 "kind": "PropertyAccessExpression",
                 "expression": {
-                  "pos": 146,
-                  "end": 158,
+                  "pos": 175,
+                  "end": 187,
                   "kind": "Identifier",
                   "escapedText": "console",
-                  "id": 39
+                  "id": 45
                 },
                 "name": {
-                  "pos": 159,
-                  "end": 162,
+                  "pos": 188,
+                  "end": 191,
                   "kind": "Identifier",
                   "escapedText": "log",
-                  "id": 40
+                  "id": 46
                 },
-                "id": 38
+                "id": 44
               },
               "arguments": [
                 {
-                  "pos": 163,
-                  "end": 169,
+                  "pos": 192,
+                  "end": 198,
                   "kind": "CallExpression",
                   "expression": {
-                    "pos": 163,
-                    "end": 166,
+                    "pos": 192,
+                    "end": 195,
                     "kind": "Identifier",
                     "escapedText": "fib",
-                    "id": 42
+                    "id": 48
                   },
                   "arguments": [
                     {
-                      "pos": 167,
-                      "end": 168,
+                      "pos": 196,
+                      "end": 197,
                       "kind": "FirstLiteralToken",
                       "text": "1",
                       "numericLiteralFlags": 0,
-                      "id": 43
+                      "id": 49
                     }
                   ],
-                  "id": 41
+                  "id": 47
                 }
               ],
-              "id": 37
+              "id": 43
             },
-            "id": 36
+            "id": 42
           },
           {
-            "pos": 171,
-            "end": 196,
+            "pos": 200,
+            "end": 225,
             "kind": "ExpressionStatement",
             "expression": {
-              "pos": 171,
-              "end": 195,
+              "pos": 200,
+              "end": 224,
               "kind": "CallExpression",
               "expression": {
-                "pos": 171,
-                "end": 187,
+                "pos": 200,
+                "end": 216,
                 "kind": "PropertyAccessExpression",
                 "expression": {
-                  "pos": 171,
-                  "end": 183,
+                  "pos": 200,
+                  "end": 212,
                   "kind": "Identifier",
                   "escapedText": "console",
-                  "id": 47
+                  "id": 53
                 },
                 "name": {
-                  "pos": 184,
-                  "end": 187,
+                  "pos": 213,
+                  "end": 216,
                   "kind": "Identifier",
                   "escapedText": "log",
-                  "id": 48
+                  "id": 54
                 },
-                "id": 46
+                "id": 52
               },
               "arguments": [
                 {
-                  "pos": 188,
-                  "end": 194,
+                  "pos": 217,
+                  "end": 223,
                   "kind": "CallExpression",
                   "expression": {
-                    "pos": 188,
-                    "end": 191,
+                    "pos": 217,
+                    "end": 220,
                     "kind": "Identifier",
                     "escapedText": "fib",
-                    "id": 50
+                    "id": 56
                   },
                   "arguments": [
                     {
-                      "pos": 192,
-                      "end": 193,
+                      "pos": 221,
+                      "end": 222,
                       "kind": "FirstLiteralToken",
                       "text": "3",
                       "numericLiteralFlags": 0,
-                      "id": 51
+                      "id": 57
                     }
                   ],
-                  "id": 49
+                  "id": 55
                 }
               ],
-              "id": 45
+              "id": 51
             },
-            "id": 44
+            "id": 50
           },
           {
-            "pos": 196,
-            "end": 211,
+            "pos": 225,
+            "end": 240,
             "kind": "ReturnStatement",
             "expression": {
-              "pos": 208,
-              "end": 210,
+              "pos": 237,
+              "end": 239,
               "kind": "FirstLiteralToken",
               "text": "0",
               "numericLiteralFlags": 0,
-              "id": 53
+              "id": 59
             },
-            "id": 52
+            "id": 58
           }
         ],
         "multiLine": true,
-        "id": 35
+        "id": 41
       },
-      "id": 32
+      "id": 38
     }
   ],
   "endOfFileToken": {
-    "pos": 213,
-    "end": 219,
+    "pos": 242,
+    "end": 248,
     "kind": "EndOfFileToken",
-    "id": 54
+    "id": 60
   },
   "fileName": "fib.ts",
   "languageVersion": 99,
@@ -385,8 +424,8 @@
   "typeReferenceDirectives": [],
   "libReferenceDirectives": [],
   "amdDependencies": [],
-  "nodeCount": 56,
-  "identifierCount": 17,
+  "nodeCount": 62,
+  "identifierCount": 18,
   "identifiers": {},
   "parseDiagnostics": [],
   "id": 1

@@ -37,6 +37,8 @@ export function VariableDeclarationListHandle(obj, self) {
                 self.iterate(obj.declarations[i].initializer, self);
                 v.literal = self.currentBinExp;
                 break;
+            case "FalseKeyword": v.literal = "false"; break;
+            case "TrueKeyword": v.literal = "true"; break;
     
         }
 
@@ -54,6 +56,7 @@ export function VariableDeclarationListHandle(obj, self) {
 export function CxxVarConstructor(v: ArcVar, d: DepthLevel, self, param?: boolean) {
     let cType = v.type, cString = "";
 
+
     if(v.literal) {
         cString = cType + " " + v.varName + " = " + v.literal + ";";
     } else if (param) { 
@@ -65,11 +68,7 @@ export function CxxVarConstructor(v: ArcVar, d: DepthLevel, self, param?: boolea
     if(param) {
         return cString;
     } else {
-        if(d.dc == DepthClass.Global) {
-            self.construct.addGlobal(cString);
-        } else {
-            //self.construct.createLocal(cString);
-        }
+        self.construct.addGlobal(cString);
     }
 }
 
