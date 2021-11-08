@@ -58,7 +58,6 @@ export function BinExpHandle(obj, self, sub?: boolean) {
         finalStr = leftRaw + " " + OpHandle(op.kind) + " " + rightRaw;
     }
 
-    console.log("FINAL STR: " + finalStr)
     if(sub) {
         return finalStr;
     } else {
