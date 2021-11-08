@@ -52,12 +52,7 @@ export function VariableDeclarationListHandle(obj, self) {
 }
 
 export function CxxVarConstructor(v: ArcVar, d: DepthLevel, self, param?: boolean) {
-    let cType = "", cString = "";
-    switch(v.type) {
-        case "NumberKeyword": cType = "ArcNumber"; break;
-        case "StringKeyword": cType = "ArcStr"; break;
-        default: cType = v.type;
-    }
+    let cType = v.type, cString = "";
 
     if(v.literal) {
         cString = cType + " " + v.varName + " = " + v.literal + ";";
