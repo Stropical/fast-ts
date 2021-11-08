@@ -7,6 +7,7 @@
     "test": "node test/pretest.js && jest",
     "main": "node dist/main.js test/realworld/fib.ts -o test/realworld/fib.o -A -V",
     "build": "tsc",
+    "build-lib": "cd lib && make",
     "release": "pkg dist"
   },
   "repository": {
