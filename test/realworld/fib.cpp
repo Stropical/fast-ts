@@ -14,5 +14,8 @@ BooleanKeyword debug = false;
 NumberKeyword main () {
 console::log(fib(1));
 console::log(fib(3));
+if (debug == true) { 
+console::log(fib(5));
+} 
 
 }

@@ -13,6 +13,10 @@ function main(): number {
     console.log(fib(1));
     console.log(fib(3));
 
+    if(debug) {
+        console.log(fib(5));
+    }
+
     return 0;
 }   
 

@@ -1,6 +1,6 @@
 {
   "pos": 0,
-  "end": 248,
+  "end": 300,
   "kind": "SourceFile",
   "statements": [
     {
@@ -250,7 +250,7 @@
     },
     {
       "pos": 148,
-      "end": 242,
+      "end": 294,
       "kind": "FunctionDeclaration",
       "name": {
         "pos": 158,
@@ -268,7 +268,7 @@
       },
       "body": {
         "pos": 173,
-        "end": 242,
+        "end": 294,
         "kind": "Block",
         "statements": [
           {
@@ -387,17 +387,96 @@
           },
           {
             "pos": 225,
-            "end": 240,
+            "end": 277,
+            "kind": "IfStatement",
+            "expression": {
+              "pos": 234,
+              "end": 239,
+              "kind": "Identifier",
+              "escapedText": "debug",
+              "id": 59
+            },
+            "thenStatement": {
+              "pos": 240,
+              "end": 277,
+              "kind": "Block",
+              "statements": [
+                {
+                  "pos": 242,
+                  "end": 271,
+                  "kind": "ExpressionStatement",
+                  "expression": {
+                    "pos": 242,
+                    "end": 270,
+                    "kind": "CallExpression",
+                    "expression": {
+                      "pos": 242,
+                      "end": 262,
+                      "kind": "PropertyAccessExpression",
+                      "expression": {
+                        "pos": 242,
+                        "end": 258,
+                        "kind": "Identifier",
+                        "escapedText": "console",
+                        "id": 64
+                      },
+                      "name": {
+                        "pos": 259,
+                        "end": 262,
+                        "kind": "Identifier",
+                        "escapedText": "log",
+                        "id": 65
+                      },
+                      "id": 63
+                    },
+                    "arguments": [
+                      {
+                        "pos": 263,
+                        "end": 269,
+                        "kind": "CallExpression",
+                        "expression": {
+                          "pos": 263,
+                          "end": 266,
+                          "kind": "Identifier",
+                          "escapedText": "fib",
+                          "id": 67
+                        },
+                        "arguments": [
+                          {
+                            "pos": 267,
+                            "end": 268,
+                            "kind": "FirstLiteralToken",
+                            "text": "5",
+                            "numericLiteralFlags": 0,
+                            "id": 68
+                          }
+                        ],
+                        "id": 66
+                      }
+                    ],
+                    "id": 62
+                  },
+                  "id": 61
+                }
+              ],
+              "multiLine": true,
+              "id": 60
+            },
+            "id": 58
+          },
+          {
+            "pos": 277,
+            "end": 292,
             "kind": "ReturnStatement",
             "expression": {
-              "pos": 237,
-              "end": 239,
+              "pos": 289,
+              "end": 291,
               "kind": "FirstLiteralToken",
               "text": "0",
               "numericLiteralFlags": 0,
-              "id": 59
+              "id": 70
             },
-            "id": 58
+            "id": 69
           }
         ],
         "multiLine": true,
@@ -407,10 +486,10 @@
     }
   ],
   "endOfFileToken": {
-    "pos": 242,
-    "end": 248,
+    "pos": 294,
+    "end": 300,
     "kind": "EndOfFileToken",
-    "id": 60
+    "id": 71
   },
   "fileName": "fib.ts",
   "languageVersion": 99,
@@ -424,8 +503,8 @@
   "typeReferenceDirectives": [],
   "libReferenceDirectives": [],
   "amdDependencies": [],
-  "nodeCount": 62,
-  "identifierCount": 18,
+  "nodeCount": 73,
+  "identifierCount": 22,
   "identifiers": {},
   "parseDiagnostics": [],
   "id": 1
