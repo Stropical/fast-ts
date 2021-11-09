@@ -55,6 +55,10 @@ let ASTGen = new AstGenerator(mainFileName + '.ts', rawCode);
 let AST = JSON.parse(ASTGen.generateAST());
 let AstOut = JSON.stringify(AST, null, 2);
 
+if(options.options.includes('-A')) {
+    fs.writeFileSync(filePath + mainFileName + '.json', AstOut);
+}
+
 //Build code
 let builder = new Builder(AST, filePath + mainFileName, false);
 builder.verbose = verbose;
@@ -66,6 +70,3 @@ asmGen.constructObjs();
 //End code generation
 
 //Write final files
-if(options.options.includes('-A')) {
-    fs.writeFileSync(filePath + mainFileName + '.json', AstOut);
-}

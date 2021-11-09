@@ -1,6 +1,6 @@
 //Handles anything with variables
 import { DepthLevel, DepthClass } from './util'
-import { BinExpHandle } from './binExp'
+import { BinExpHandle, UnaryHandle } from './binExp'
 
 export class ArcVar {
     varName: string = "";
@@ -21,6 +21,11 @@ export function VariableDeclarationListHandle(obj, self) {
         let v: ArcVar = new ArcVar();
         v.varName = obj.declarations[i].name.escapedText;
         v.literal = obj.declarations[i].initializer.text;
+
+        if(!obj.declarations[i].type.kind) {
+            throw new Error("Type needs to be defined for FastTS to run")
+        }
+
         v.type = obj.declarations[i].type.kind;
 
         if(obj.declarations[i].initializer.kind != "Identifier") {
@@ -28,6 +33,7 @@ export function VariableDeclarationListHandle(obj, self) {
         }
         switch (obj.declarations[i].initializer.kind) {
             case "Identifier": v.literal = obj.declarations[i].initializer.text;
+            case "PrefixUnaryExpression": UnaryHandle(obj.declarations[i].initializer, self); v.literal = self.currentBinExp; break;
             case "BinaryExpression": 
                 self.iterate(obj.declarations[i].initializer, self);
                 v.literal = self.currentBinExp;

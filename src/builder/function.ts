@@ -57,6 +57,11 @@ export function CallHandle(obj, self, subCall?: boolean) {
     let funcName = obj.expression.escapedText;
     let args = [];
 
+    switch(obj.expression.kind) {
+        case "Identifier": funcName = obj.expression.escapedText; break;
+        case "PropertyAccessExpression": funcName = obj.expression.expression.escapedText + "::" + obj.expression.name.escapedText; break;
+    }
+
     obj.arguments.forEach(element => {
         switch(element.kind) {
             case "Identifier": break;
