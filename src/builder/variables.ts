@@ -22,15 +22,17 @@ export function VariableDeclarationListHandle(obj, self) {
         v.varName = obj.declarations[i].name.escapedText;
         v.literal = obj.declarations[i].initializer.text;
 
-        if(!obj.declarations[i].type.kind) {
+       /* if(!obj.declarations[i].type.kind) {      TODO: Throw error if code is not hard typed ex let x: number
             throw new Error("Type needs to be defined for FastTS to run")
-        }
+        } */
+
 
         v.type = obj.declarations[i].type.kind;
 
         if(obj.declarations[i].initializer.kind != "Identifier") {
             
         }
+
         switch (obj.declarations[i].initializer.kind) {
             case "Identifier": v.literal = obj.declarations[i].initializer.text;
             case "PrefixUnaryExpression": UnaryHandle(obj.declarations[i].initializer, self); v.literal = self.currentBinExp; break;

@@ -2,6 +2,7 @@ import { DepthClass } from './util'
 import { Builder } from './builder'
 import { ArcVar } from './variables';
 import { BinExpHandle } from './binExp';
+import { StringLiteral } from './string';
 
 export function FunctionHandle(obj, self) {
     self.currentFuncName = obj.name.escapedText
@@ -64,7 +65,8 @@ export function CallHandle(obj, self, subCall?: boolean) {
 
     obj.arguments.forEach(element => {
         switch(element.kind) {
-            case "Identifier": break;
+            case "Identifier": args.push(element.escapedText); break;
+            case "StringLiteral": args.push(StringLiteral(element, self)); break;
             case "FirstLiteralToken": args.push(element.text); break;
             case "BinaryExpression": args.push(BinExpHandle(element, self, true)); break;
             case "CallExpression": 
