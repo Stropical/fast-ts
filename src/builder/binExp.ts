@@ -72,7 +72,10 @@ function OpHandle(op) {
     switch(op) {
         case "PlusToken": return "+"; break;
         case "MinusToken": return "-"; break;
+        case "GreaterThanToken": return ">"; break;
+        case "LessThanToken": return "<"; break;
         case "LessThanEqualsToken": return "<="; break;
+        case "GreaterThanEqualsToken": return "<="; break;
     }
 }
 
