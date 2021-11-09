@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 
-typedef int ArcNumber;
+typedef int NumberKeyword;
+typedef bool BooleanKeyword;
 
-void nprint(int str);
+namespace console {
+    void log(int str);
+}
