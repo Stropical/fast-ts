@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "args": ["test/realworld/fib.ts", "-o", "test/realworld/fib.o", "-A", "-V"],
+            "args": ["test/test.ts", "-o", "test/test.o", "-A", "-V"],
             "type": "pwa-node",
             "request": "launch",
             "name": "Launch Program",
