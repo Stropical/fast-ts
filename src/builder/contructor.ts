@@ -34,7 +34,7 @@ export class CodeConstructor {
         this.codeStr += ";\r\n";
     }
 
-    addIfStatement(condition:string, innerCode: string) {
+    addIfStatement(condition: string, innerCode: string) {
         this.codeStr += "if (" + condition + ") { \r\n";     
     }
 

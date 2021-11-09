@@ -1,5 +1,7 @@
 #include "arc.hpp"
 
-void nprint(int str) {
-    std::cout << str << "\r\n";
+namespace console {
+    void log(int str) {
+        std::cout << str << "\r\n";
+    }
 }

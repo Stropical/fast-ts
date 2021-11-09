@@ -54,7 +54,7 @@ export function ReturnHandle(obj, self) {
 }
 
 export function CallHandle(obj, self, subCall?: boolean) {
-    let funcName = obj.expression.escapedText;
+    let funcName: string;
     let args = [];
 
     switch(obj.expression.kind) {

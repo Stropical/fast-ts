@@ -8,5 +8,9 @@ export function IfHandle(obj, self) {
             BlockHandle(obj.thenStatement, self, false)
             self.construct.finishIf();
         break;
+        case "Identifier":
+            self.construct.addIfStatement(obj.expression.escapedText + " == true", "");
+            BlockHandle(obj.thenStatement, self, false)
+            self.construct.finishIf();
     }
 }

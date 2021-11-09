@@ -1,5 +1,5 @@
 
-function fib(n: int): int {
+function fib(n: number): number {
     if (n <= 1) {
         return n;
     }
@@ -7,11 +7,17 @@ function fib(n: int): int {
     return fib(n-1) + fib(n-2);
 }
 
-function main(): int {
-    nprint(fib(1));
-    nprint(fib(3));
-    nprint(fib(10));
-    nprint(fib(20));
+let debug: boolean = false;
+
+function main(): number {
+    console.log(fib(1));
+    console.log(fib(3));
+
+    if(debug) {
+        console.log(fib(5));
+    }
+
+    return 0;
 }   
 
 
