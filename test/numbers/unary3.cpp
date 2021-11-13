@@ -6,10 +6,10 @@
 AnyKeyword u1 = 123;
 AnyKeyword u2 = abc;
 AnyKeyword u3;
-undefined();
-undefined(10 - undefined);
-undefined(10 - undefined);
-undefined(10 - undefined);
-undefined(10 - undefined);
-undefined(10 - undefined);
-undefined(10 - undefined);
+u3::push(std::string("15"));
+console::log(10 - undefined, u1);
+console::log(10 - undefined, u1);
+console::log(10 - undefined, u2);
+console::log(10 - undefined, u2);
+console::log(10 - undefined);
+console::log(10 - undefined);

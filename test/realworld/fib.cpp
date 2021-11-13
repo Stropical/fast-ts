@@ -15,7 +15,10 @@ NumberKeyword main () {
 console::log(fib(1));
 console::log(fib(3));
 if (debug == true) { 
-console::log(fib(5));
+NumberKeyword num = fib(10);
+if (num > 5) { 
+console::log(std::string("Above 5"));
+} 
 } 
 
 }

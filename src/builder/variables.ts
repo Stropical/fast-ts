@@ -1,6 +1,8 @@
 //Handles anything with variables
 import { DepthLevel, DepthClass } from './util'
 import { BinExpHandle, UnaryHandle } from './binExp'
+import { FastTSErr, TypeDefNotDefined } from '../error/error'
+
 
 export class ArcVar {
     varName: string = "";
@@ -26,8 +28,12 @@ export function VariableDeclarationListHandle(obj, self) {
             throw new Error("Type needs to be defined for FastTS to run")
         } */
 
-
-        v.type = obj.declarations[i].type.kind;
+        try {
+            v.type = obj.declarations[i].type.kind;
+        } catch (e) {
+            throw new FastTSErr(TypeDefNotDefined(self, 'Type not defined', obj.declarations[i].pos))
+        }
+        
 
         if(obj.declarations[i].initializer.kind != "Identifier") {
             

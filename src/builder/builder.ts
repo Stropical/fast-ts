@@ -11,6 +11,7 @@ import { IfHandle } from './conditional'
 
 export class Builder {
     //Main sources
+    rawCode: string;
     codeObj: Object;
 
     //Temps
@@ -25,6 +26,7 @@ export class Builder {
     //Flags
     isBlock: boolean = false;
     isExpression: boolean = false;
+    soloExpression: boolean = true;
     verbose: boolean = false;
     outPath: string;
 

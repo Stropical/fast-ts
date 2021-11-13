@@ -1,58 +1,64 @@
 {
   "pos": 0,
-  "end": 414,
+  "end": 208,
   "kind": "SourceFile",
   "statements": [
     {
       "pos": 0,
-      "end": 31,
-      "kind": "FirstStatement",
-      "declarationList": {
+      "end": 19,
+      "kind": "ExpressionStatement",
+      "expression": {
         "pos": 0,
-        "end": 30,
-        "kind": "VariableDeclarationList",
-        "declarations": [
+        "end": 18,
+        "kind": "CallExpression",
+        "expression": {
+          "pos": 0,
+          "end": 11,
+          "kind": "PropertyAccessExpression",
+          "expression": {
+            "pos": 0,
+            "end": 7,
+            "kind": "Identifier",
+            "escapedText": "console",
+            "id": 5
+          },
+          "name": {
+            "pos": 8,
+            "end": 11,
+            "kind": "Identifier",
+            "escapedText": "log",
+            "id": 6
+          },
+          "id": 4
+        },
+        "arguments": [
           {
-            "pos": 3,
-            "end": 30,
-            "kind": "VariableDeclaration",
-            "name": {
-              "pos": 3,
-              "end": 6,
-              "kind": "Identifier",
-              "escapedText": "n1",
-              "id": 5
+            "pos": 12,
+            "end": 17,
+            "kind": "BinaryExpression",
+            "left": {
+              "pos": 12,
+              "end": 13,
+              "kind": "FirstLiteralToken",
+              "text": "2",
+              "numericLiteralFlags": 0,
+              "id": 8
             },
-            "initializer": {
-              "pos": 16,
-              "end": 30,
-              "kind": "CallExpression",
-              "expression": {
-                "pos": 16,
-                "end": 25,
-                "kind": "Identifier",
-                "escapedText": "parseInt",
-                "id": 8
-              },
-              "arguments": [
-                {
-                  "pos": 26,
-                  "end": 29,
-                  "kind": "StringLiteral",
-                  "text": "3",
-                  "hasExtendedUnicodeEscape": false,
-                  "id": 9
-                }
-              ],
-              "id": 7
+            "operatorToken": {
+              "pos": 13,
+              "end": 15,
+              "kind": "PlusToken",
+              "id": 9
             },
-            "type": {
-              "pos": 7,
-              "end": 14,
-              "kind": "NumberKeyword",
-              "id": 6
+            "right": {
+              "pos": 15,
+              "end": 17,
+              "kind": "FirstLiteralToken",
+              "text": "2",
+              "numericLiteralFlags": 0,
+              "id": 10
             },
-            "id": 4
+            "id": 7
           }
         ],
         "id": 3
@@ -60,193 +66,212 @@
       "id": 2
     },
     {
-      "pos": 31,
-      "end": 49,
+      "pos": 19,
+      "end": 47,
       "kind": "ExpressionStatement",
       "expression": {
-        "pos": 31,
-        "end": 48,
+        "pos": 19,
+        "end": 46,
         "kind": "CallExpression",
         "expression": {
-          "pos": 31,
-          "end": 44,
+          "pos": 19,
+          "end": 31,
           "kind": "PropertyAccessExpression",
           "expression": {
-            "pos": 31,
-            "end": 40,
+            "pos": 19,
+            "end": 27,
             "kind": "Identifier",
             "escapedText": "console",
-            "id": 13
-          },
-          "name": {
-            "pos": 41,
-            "end": 44,
-            "kind": "Identifier",
-            "escapedText": "log",
             "id": 14
           },
-          "id": 12
-        },
-        "arguments": [
-          {
-            "pos": 45,
-            "end": 47,
-            "kind": "Identifier",
-            "escapedText": "n1",
-            "id": 15
-          }
-        ],
-        "id": 11
-      },
-      "id": 10
-    },
-    {
-      "pos": 49,
-      "end": 87,
-      "kind": "FirstStatement",
-      "declarationList": {
-        "pos": 49,
-        "end": 86,
-        "kind": "VariableDeclarationList",
-        "declarations": [
-          {
-            "pos": 56,
-            "end": 86,
-            "kind": "VariableDeclaration",
-            "name": {
-              "pos": 56,
-              "end": 59,
-              "kind": "Identifier",
-              "escapedText": "n2",
-              "id": 19
-            },
-            "initializer": {
-              "pos": 69,
-              "end": 86,
-              "kind": "CallExpression",
-              "expression": {
-                "pos": 69,
-                "end": 78,
-                "kind": "Identifier",
-                "escapedText": "parseInt",
-                "id": 22
-              },
-              "arguments": [
-                {
-                  "pos": 79,
-                  "end": 85,
-                  "kind": "StringLiteral",
-                  "text": "2342",
-                  "hasExtendedUnicodeEscape": false,
-                  "id": 23
-                }
-              ],
-              "id": 21
-            },
-            "type": {
-              "pos": 60,
-              "end": 67,
-              "kind": "NumberKeyword",
-              "id": 20
-            },
-            "id": 18
-          }
-        ],
-        "id": 17
-      },
-      "id": 16
-    },
-    {
-      "pos": 87,
-      "end": 105,
-      "kind": "ExpressionStatement",
-      "expression": {
-        "pos": 87,
-        "end": 104,
-        "kind": "CallExpression",
-        "expression": {
-          "pos": 87,
-          "end": 100,
-          "kind": "PropertyAccessExpression",
-          "expression": {
-            "pos": 87,
-            "end": 96,
-            "kind": "Identifier",
-            "escapedText": "console",
-            "id": 27
-          },
           "name": {
-            "pos": 97,
-            "end": 100,
+            "pos": 28,
+            "end": 31,
             "kind": "Identifier",
             "escapedText": "log",
-            "id": 28
+            "id": 15
           },
-          "id": 26
+          "id": 13
         },
         "arguments": [
           {
-            "pos": 101,
-            "end": 103,
-            "kind": "Identifier",
-            "escapedText": "n2",
-            "id": 29
+            "pos": 32,
+            "end": 45,
+            "kind": "BinaryExpression",
+            "left": {
+              "pos": 32,
+              "end": 37,
+              "kind": "FirstLiteralToken",
+              "text": "22767",
+              "numericLiteralFlags": 0,
+              "id": 17
+            },
+            "operatorToken": {
+              "pos": 37,
+              "end": 39,
+              "kind": "PlusToken",
+              "id": 18
+            },
+            "right": {
+              "pos": 39,
+              "end": 45,
+              "kind": "FirstLiteralToken",
+              "text": "10000",
+              "numericLiteralFlags": 0,
+              "id": 19
+            },
+            "id": 16
           }
         ],
-        "id": 25
+        "id": 12
       },
-      "id": 24
+      "id": 11
     },
     {
-      "pos": 105,
-      "end": 144,
-      "kind": "FirstStatement",
-      "declarationList": {
-        "pos": 105,
-        "end": 143,
-        "kind": "VariableDeclarationList",
-        "declarations": [
+      "pos": 47,
+      "end": 76,
+      "kind": "ExpressionStatement",
+      "expression": {
+        "pos": 47,
+        "end": 75,
+        "kind": "CallExpression",
+        "expression": {
+          "pos": 47,
+          "end": 59,
+          "kind": "PropertyAccessExpression",
+          "expression": {
+            "pos": 47,
+            "end": 55,
+            "kind": "Identifier",
+            "escapedText": "console",
+            "id": 23
+          },
+          "name": {
+            "pos": 56,
+            "end": 59,
+            "kind": "Identifier",
+            "escapedText": "log",
+            "id": 24
+          },
+          "id": 22
+        },
+        "arguments": [
           {
-            "pos": 112,
-            "end": 143,
-            "kind": "VariableDeclaration",
-            "name": {
-              "pos": 112,
-              "end": 115,
-              "kind": "Identifier",
-              "escapedText": "n3",
-              "id": 33
-            },
-            "initializer": {
-              "pos": 125,
-              "end": 143,
-              "kind": "CallExpression",
-              "expression": {
-                "pos": 125,
-                "end": 134,
-                "kind": "Identifier",
-                "escapedText": "parseInt",
-                "id": 36
+            "pos": 60,
+            "end": 74,
+            "kind": "BinaryExpression",
+            "left": {
+              "pos": 60,
+              "end": 66,
+              "kind": "PrefixUnaryExpression",
+              "operator": 40,
+              "operand": {
+                "pos": 61,
+                "end": 66,
+                "kind": "FirstLiteralToken",
+                "text": "22767",
+                "numericLiteralFlags": 0,
+                "id": 27
               },
-              "arguments": [
-                {
-                  "pos": 135,
-                  "end": 142,
-                  "kind": "StringLiteral",
-                  "text": "    3",
-                  "hasExtendedUnicodeEscape": false,
-                  "id": 37
-                }
-              ],
-              "id": 35
+              "id": 26
             },
-            "type": {
-              "pos": 116,
-              "end": 123,
-              "kind": "NumberKeyword",
-              "id": 34
+            "operatorToken": {
+              "pos": 66,
+              "end": 68,
+              "kind": "MinusToken",
+              "id": 28
             },
-            "id": 32
+            "right": {
+              "pos": 68,
+              "end": 74,
+              "kind": "FirstLiteralToken",
+              "text": "10000",
+              "numericLiteralFlags": 0,
+              "id": 29
+            },
+            "id": 25
+          }
+        ],
+        "id": 21
+      },
+      "id": 20
+    },
+    {
+      "pos": 76,
+      "end": 108,
+      "kind": "ExpressionStatement",
+      "expression": {
+        "pos": 76,
+        "end": 107,
+        "kind": "CallExpression",
+        "expression": {
+          "pos": 76,
+          "end": 88,
+          "kind": "PropertyAccessExpression",
+          "expression": {
+            "pos": 76,
+            "end": 84,
+            "kind": "Identifier",
+            "escapedText": "console",
+            "id": 33
+          },
+          "name": {
+            "pos": 85,
+            "end": 88,
+            "kind": "Identifier",
+            "escapedText": "log",
+            "id": 34
+          },
+          "id": 32
+        },
+        "arguments": [
+          {
+            "pos": 89,
+            "end": 106,
+            "kind": "BinaryExpression",
+            "left": {
+              "pos": 89,
+              "end": 95,
+              "kind": "PrefixUnaryExpression",
+              "operator": 40,
+              "operand": {
+                "pos": 90,
+                "end": 95,
+                "kind": "FirstLiteralToken",
+                "text": "22767",
+                "numericLiteralFlags": 0,
+                "id": 37
+              },
+              "id": 36
+            },
+            "operatorToken": {
+              "pos": 95,
+              "end": 97,
+              "kind": "PlusToken",
+              "id": 38
+            },
+            "right": {
+              "pos": 97,
+              "end": 106,
+              "kind": "ParenthesizedExpression",
+              "expression": {
+                "pos": 99,
+                "end": 105,
+                "kind": "PrefixUnaryExpression",
+                "operator": 40,
+                "operand": {
+                  "pos": 100,
+                  "end": 105,
+                  "kind": "FirstLiteralToken",
+                  "text": "10000",
+                  "numericLiteralFlags": 0,
+                  "id": 41
+                },
+                "id": 40
+              },
+              "id": 39
+            },
+            "id": 35
           }
         ],
         "id": 31
@@ -254,287 +279,242 @@
       "id": 30
     },
     {
-      "pos": 144,
-      "end": 162,
-      "kind": "ExpressionStatement",
-      "expression": {
-        "pos": 144,
-        "end": 161,
-        "kind": "CallExpression",
-        "expression": {
-          "pos": 144,
-          "end": 157,
-          "kind": "PropertyAccessExpression",
-          "expression": {
-            "pos": 144,
-            "end": 153,
-            "kind": "Identifier",
-            "escapedText": "console",
-            "id": 41
-          },
-          "name": {
-            "pos": 154,
-            "end": 157,
-            "kind": "Identifier",
-            "escapedText": "log",
-            "id": 42
-          },
-          "id": 40
-        },
-        "arguments": [
-          {
-            "pos": 158,
-            "end": 160,
-            "kind": "Identifier",
-            "escapedText": "n3",
-            "id": 43
-          }
-        ],
-        "id": 39
-      },
-      "id": 38
-    },
-    {
-      "pos": 162,
-      "end": 204,
+      "pos": 108,
+      "end": 132,
       "kind": "FirstStatement",
       "declarationList": {
-        "pos": 162,
-        "end": 203,
+        "pos": 108,
+        "end": 131,
         "kind": "VariableDeclarationList",
         "declarations": [
           {
-            "pos": 169,
-            "end": 203,
+            "pos": 113,
+            "end": 131,
             "kind": "VariableDeclaration",
             "name": {
-              "pos": 169,
-              "end": 172,
+              "pos": 113,
+              "end": 115,
               "kind": "Identifier",
-              "escapedText": "n4",
+              "escapedText": "a",
+              "id": 45
+            },
+            "initializer": {
+              "pos": 125,
+              "end": 131,
+              "kind": "FirstLiteralToken",
+              "text": "32767",
+              "numericLiteralFlags": 0,
               "id": 47
             },
-            "initializer": {
-              "pos": 182,
-              "end": 203,
-              "kind": "CallExpression",
-              "expression": {
-                "pos": 182,
-                "end": 191,
-                "kind": "Identifier",
-                "escapedText": "parseInt",
-                "id": 50
-              },
-              "arguments": [
-                {
-                  "pos": 192,
-                  "end": 202,
-                  "kind": "StringLiteral",
-                  "text": "    1212",
-                  "hasExtendedUnicodeEscape": false,
-                  "id": 51
-                }
-              ],
-              "id": 49
-            },
             "type": {
-              "pos": 173,
-              "end": 180,
+              "pos": 116,
+              "end": 123,
               "kind": "NumberKeyword",
-              "id": 48
+              "id": 46
             },
-            "id": 46
+            "id": 44
           }
         ],
-        "id": 45
+        "id": 43
       },
-      "id": 44
+      "id": 42
     },
     {
-      "pos": 204,
-      "end": 222,
-      "kind": "ExpressionStatement",
-      "expression": {
-        "pos": 204,
-        "end": 221,
-        "kind": "CallExpression",
-        "expression": {
-          "pos": 204,
-          "end": 217,
-          "kind": "PropertyAccessExpression",
-          "expression": {
-            "pos": 204,
-            "end": 213,
-            "kind": "Identifier",
-            "escapedText": "console",
-            "id": 55
-          },
-          "name": {
-            "pos": 214,
-            "end": 217,
-            "kind": "Identifier",
-            "escapedText": "log",
-            "id": 56
-          },
-          "id": 54
-        },
-        "arguments": [
-          {
-            "pos": 218,
-            "end": 220,
-            "kind": "Identifier",
-            "escapedText": "n4",
-            "id": 57
-          }
-        ],
-        "id": 53
-      },
-      "id": 52
-    },
-    {
-      "pos": 222,
-      "end": 266,
+      "pos": 132,
+      "end": 148,
       "kind": "FirstStatement",
       "declarationList": {
-        "pos": 222,
-        "end": 265,
+        "pos": 132,
+        "end": 147,
         "kind": "VariableDeclarationList",
         "declarations": [
           {
-            "pos": 229,
-            "end": 265,
+            "pos": 136,
+            "end": 147,
             "kind": "VariableDeclaration",
             "name": {
-              "pos": 229,
-              "end": 232,
+              "pos": 136,
+              "end": 138,
               "kind": "Identifier",
-              "escapedText": "n5",
+              "escapedText": "b",
+              "id": 51
+            },
+            "initializer": {
+              "pos": 140,
+              "end": 147,
+              "kind": "PrefixUnaryExpression",
+              "operator": 40,
+              "operand": {
+                "pos": 142,
+                "end": 147,
+                "kind": "FirstLiteralToken",
+                "text": "32767",
+                "numericLiteralFlags": 0,
+                "id": 53
+              },
+              "id": 52
+            },
+            "id": 50
+          }
+        ],
+        "id": 49
+      },
+      "id": 48
+    },
+    {
+      "pos": 148,
+      "end": 168,
+      "kind": "ExpressionStatement",
+      "expression": {
+        "pos": 148,
+        "end": 167,
+        "kind": "CallExpression",
+        "expression": {
+          "pos": 148,
+          "end": 160,
+          "kind": "PropertyAccessExpression",
+          "expression": {
+            "pos": 148,
+            "end": 156,
+            "kind": "Identifier",
+            "escapedText": "console",
+            "id": 57
+          },
+          "name": {
+            "pos": 157,
+            "end": 160,
+            "kind": "Identifier",
+            "escapedText": "log",
+            "id": 58
+          },
+          "id": 56
+        },
+        "arguments": [
+          {
+            "pos": 161,
+            "end": 166,
+            "kind": "BinaryExpression",
+            "left": {
+              "pos": 161,
+              "end": 162,
+              "kind": "Identifier",
+              "escapedText": "a",
+              "id": 60
+            },
+            "operatorToken": {
+              "pos": 162,
+              "end": 164,
+              "kind": "PlusToken",
               "id": 61
             },
-            "initializer": {
-              "pos": 242,
-              "end": 265,
-              "kind": "CallExpression",
-              "expression": {
-                "pos": 242,
-                "end": 251,
-                "kind": "Identifier",
-                "escapedText": "parseInt",
-                "id": 64
-              },
-              "arguments": [
-                {
-                  "pos": 252,
-                  "end": 264,
-                  "kind": "StringLiteral",
-                  "text": "    3  wew",
-                  "hasExtendedUnicodeEscape": false,
-                  "id": 65
-                }
-              ],
-              "id": 63
-            },
-            "type": {
-              "pos": 233,
-              "end": 240,
-              "kind": "NumberKeyword",
+            "right": {
+              "pos": 164,
+              "end": 166,
+              "kind": "Identifier",
+              "escapedText": "b",
               "id": 62
             },
-            "id": 60
+            "id": 59
           }
         ],
-        "id": 59
+        "id": 55
       },
-      "id": 58
+      "id": 54
     },
     {
-      "pos": 266,
-      "end": 284,
+      "pos": 168,
+      "end": 192,
       "kind": "ExpressionStatement",
       "expression": {
-        "pos": 266,
-        "end": 283,
+        "pos": 168,
+        "end": 191,
         "kind": "CallExpression",
         "expression": {
-          "pos": 266,
-          "end": 279,
+          "pos": 168,
+          "end": 180,
           "kind": "PropertyAccessExpression",
           "expression": {
-            "pos": 266,
-            "end": 275,
+            "pos": 168,
+            "end": 176,
             "kind": "Identifier",
             "escapedText": "console",
-            "id": 69
+            "id": 66
           },
           "name": {
-            "pos": 276,
-            "end": 279,
+            "pos": 177,
+            "end": 180,
             "kind": "Identifier",
             "escapedText": "log",
-            "id": 70
+            "id": 67
           },
-          "id": 68
+          "id": 65
         },
         "arguments": [
           {
-            "pos": 280,
-            "end": 282,
-            "kind": "Identifier",
-            "escapedText": "n5",
-            "id": 71
+            "pos": 181,
+            "end": 190,
+            "kind": "BinaryExpression",
+            "left": {
+              "pos": 181,
+              "end": 182,
+              "kind": "Identifier",
+              "escapedText": "a",
+              "id": 69
+            },
+            "operatorToken": {
+              "pos": 182,
+              "end": 184,
+              "kind": "MinusToken",
+              "id": 70
+            },
+            "right": {
+              "pos": 184,
+              "end": 190,
+              "kind": "FirstLiteralToken",
+              "text": "10000",
+              "numericLiteralFlags": 0,
+              "id": 71
+            },
+            "id": 68
           }
         ],
-        "id": 67
+        "id": 64
       },
-      "id": 66
+      "id": 63
     },
     {
-      "pos": 284,
-      "end": 330,
+      "pos": 192,
+      "end": 208,
       "kind": "FirstStatement",
       "declarationList": {
-        "pos": 284,
-        "end": 329,
+        "pos": 192,
+        "end": 207,
         "kind": "VariableDeclarationList",
         "declarations": [
           {
-            "pos": 291,
-            "end": 329,
+            "pos": 196,
+            "end": 207,
             "kind": "VariableDeclaration",
             "name": {
-              "pos": 291,
-              "end": 294,
+              "pos": 196,
+              "end": 198,
               "kind": "Identifier",
-              "escapedText": "n6",
+              "escapedText": "c",
               "id": 75
             },
             "initializer": {
-              "pos": 304,
-              "end": 329,
-              "kind": "CallExpression",
-              "expression": {
-                "pos": 304,
-                "end": 313,
-                "kind": "Identifier",
-                "escapedText": "parseInt",
-                "id": 78
+              "pos": 200,
+              "end": 207,
+              "kind": "PrefixUnaryExpression",
+              "operator": 40,
+              "operand": {
+                "pos": 202,
+                "end": 207,
+                "kind": "FirstLiteralToken",
+                "text": "32767",
+                "numericLiteralFlags": 0,
+                "id": 77
               },
-              "arguments": [
-                {
-                  "pos": 314,
-                  "end": 328,
-                  "kind": "StringLiteral",
-                  "text": "    902  wew",
-                  "hasExtendedUnicodeEscape": false,
-                  "id": 79
-                }
-              ],
-              "id": 77
-            },
-            "type": {
-              "pos": 295,
-              "end": 302,
-              "kind": "NumberKeyword",
               "id": 76
             },
             "id": 74
@@ -543,151 +523,13 @@
         "id": 73
       },
       "id": 72
-    },
-    {
-      "pos": 330,
-      "end": 348,
-      "kind": "ExpressionStatement",
-      "expression": {
-        "pos": 330,
-        "end": 347,
-        "kind": "CallExpression",
-        "expression": {
-          "pos": 330,
-          "end": 343,
-          "kind": "PropertyAccessExpression",
-          "expression": {
-            "pos": 330,
-            "end": 339,
-            "kind": "Identifier",
-            "escapedText": "console",
-            "id": 83
-          },
-          "name": {
-            "pos": 340,
-            "end": 343,
-            "kind": "Identifier",
-            "escapedText": "log",
-            "id": 84
-          },
-          "id": 82
-        },
-        "arguments": [
-          {
-            "pos": 344,
-            "end": 346,
-            "kind": "Identifier",
-            "escapedText": "n6",
-            "id": 85
-          }
-        ],
-        "id": 81
-      },
-      "id": 80
-    },
-    {
-      "pos": 348,
-      "end": 394,
-      "kind": "FirstStatement",
-      "declarationList": {
-        "pos": 348,
-        "end": 393,
-        "kind": "VariableDeclarationList",
-        "declarations": [
-          {
-            "pos": 355,
-            "end": 393,
-            "kind": "VariableDeclaration",
-            "name": {
-              "pos": 355,
-              "end": 358,
-              "kind": "Identifier",
-              "escapedText": "n7",
-              "id": 89
-            },
-            "initializer": {
-              "pos": 368,
-              "end": 393,
-              "kind": "CallExpression",
-              "expression": {
-                "pos": 368,
-                "end": 377,
-                "kind": "Identifier",
-                "escapedText": "parseInt",
-                "id": 92
-              },
-              "arguments": [
-                {
-                  "pos": 378,
-                  "end": 392,
-                  "kind": "StringLiteral",
-                  "text": "   12 3  wew",
-                  "hasExtendedUnicodeEscape": false,
-                  "id": 93
-                }
-              ],
-              "id": 91
-            },
-            "type": {
-              "pos": 359,
-              "end": 366,
-              "kind": "NumberKeyword",
-              "id": 90
-            },
-            "id": 88
-          }
-        ],
-        "id": 87
-      },
-      "id": 86
-    },
-    {
-      "pos": 394,
-      "end": 412,
-      "kind": "ExpressionStatement",
-      "expression": {
-        "pos": 394,
-        "end": 411,
-        "kind": "CallExpression",
-        "expression": {
-          "pos": 394,
-          "end": 407,
-          "kind": "PropertyAccessExpression",
-          "expression": {
-            "pos": 394,
-            "end": 403,
-            "kind": "Identifier",
-            "escapedText": "console",
-            "id": 97
-          },
-          "name": {
-            "pos": 404,
-            "end": 407,
-            "kind": "Identifier",
-            "escapedText": "log",
-            "id": 98
-          },
-          "id": 96
-        },
-        "arguments": [
-          {
-            "pos": 408,
-            "end": 410,
-            "kind": "Identifier",
-            "escapedText": "n7",
-            "id": 99
-          }
-        ],
-        "id": 95
-      },
-      "id": 94
     }
   ],
   "endOfFileToken": {
-    "pos": 412,
-    "end": 414,
+    "pos": 208,
+    "end": 208,
     "kind": "EndOfFileToken",
-    "id": 100
+    "id": 78
   },
   "fileName": "test.ts",
   "languageVersion": 99,
@@ -701,8 +543,8 @@
   "typeReferenceDirectives": [],
   "libReferenceDirectives": [],
   "amdDependencies": [],
-  "nodeCount": 100,
-  "identifierCount": 35,
+  "nodeCount": 78,
+  "identifierCount": 18,
   "identifiers": {},
   "parseDiagnostics": [],
   "id": 1

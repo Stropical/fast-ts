@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "node test/pretest.js && jest",
-    "main": "node dist/main.js test/test.ts -o test/test.o -A -V",
+    "main": "node dist/main.js test/test.ts -o test/test.o -A",
     "build": "tsc",
     "build-lib": "cd lib && make",
-    "release": "pkg dist"
+    "release": "pkg dist/main.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "pkg": "^5.4.1",
     "shelljs": "^0.8.4"
   },
+  "bin" : "./bin/",
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "jest": "^27.3.1",

@@ -9,24 +9,26 @@ Building a faster typescript compiler is no easy challenge, so I've broken it up
 ## Pre Alpha
 ### Version 0.1.0:
     Global / Functional Variable declaration
-        Literals
+        Number Literals
         Binary Expressions
         Function Calls
     Variable Types:
-        i32, u32, i8, u8, f32
+        Integer Numbers
     Functions / Function Calls
         Code Blocks
         Parameters
         Return Statements
-
-### Version 0.2.0:
     If Statements
         All operators (<, >, <=, >=, etc.)
         Else
         Else if
-    For Loops
 
-### Version 0.3.0:
+### Version 0.2.0:
+    Full Unary Operations
+    For Loops
     Strings
     Arrays
     Objects
+
+### Version 0.3.0:
+    

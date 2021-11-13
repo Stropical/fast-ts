@@ -2,11 +2,14 @@ import * as fs from 'fs';
 import * as path from 'path'
 import { Config, CLI } from './cli'
 import { NitroTheme } from './theme'
+import { setupErrorCode } from './error/error';
 import { AstGenerator } from './ast/ast'
 import { Builder } from './builder/builder'
 import { Assembler } from './asm/assembler'
 
 let NT = new NitroTheme();
+
+
 
 //Parse command line args
 let cliParser = new CLI(["-o"], ["-A", "-L", "-O", "-V"]) //Emit AST Tree, Emit C++ Code, Generate Obj instead of EXE, verbose
@@ -17,6 +20,10 @@ let verbose: boolean = false;
 if(options.options.includes('-V')) {
     verbose = true;
 }
+
+//Setup Error Codes
+setupErrorCode(verbose);
+
 
 //Get mainfile name
 let mainFileName: string = "main", filePath: string;
@@ -62,6 +69,7 @@ if(options.options.includes('-A')) {
 //Build code
 let builder = new Builder(AST, filePath + mainFileName, false);
 builder.verbose = verbose;
+builder.rawCode = rawCode;
 builder.start(mainFileName);
 
 let asmGen = new Assembler(filePath);

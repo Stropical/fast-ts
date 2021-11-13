@@ -110,6 +110,9 @@ function OpHandle(op) {
         case "LessThanToken": return "<"; break;
         case "LessThanEqualsToken": return "<="; break;
         case "GreaterThanEqualsToken": return "<="; break;
+        case "FirstCompoundAssignment": return "+="; break;
+        case "MinusEqualsToken": return "-="; break;
+        case "AsteriskEqualsToken": return "*="; break;
     }
 }
 
