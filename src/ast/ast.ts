@@ -26,6 +26,7 @@ export class AstGenerator {
     }
 
     createSourceFile() {
+        ts.Debug.enableDebugInfo();
         this.sourceFile = ts.createSourceFile(this.name, this.source, ts.ScriptTarget.Latest, true);
     }
 

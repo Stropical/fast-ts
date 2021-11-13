@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node test/pretest.js && jest",
-    "main": "node dist/main.js test/test.ts -o test/test.o -A",
+    "main": "node dist/main.js test/test.ts -o test/test.o -A -V",
     "build": "tsc",
     "build-lib": "cd lib && make",
     "release": "pkg dist/main.js"

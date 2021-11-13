@@ -12,7 +12,7 @@ function posToLine(source: string, pos: number) {
         if(i == pos) { final = newLineCount }
     })
 
-    if(final) { return final} else { return false }
+    if(final) { return final + 1 } else { return false }
 }
 
 export function TypeDefNotDefined(self, message: string, pos: number) {
@@ -39,6 +39,7 @@ export function setupErrorCode(verbose: boolean = false) {
         if(!verbose) { console.error(err.message) } else {
             console.error(err)
         }
-        //process.exit(1) //mandatory (as per the Node.js docs)
+        
+        process.exit(1) //mandatory (as per the Node.js docs)
     })
 }

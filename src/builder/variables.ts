@@ -22,7 +22,8 @@ export function VariableDeclarationListHandle(obj, self) {
     for(var i = 0; i < obj.declarations.length; i++) {
         let v: ArcVar = new ArcVar();
         v.varName = obj.declarations[i].name.escapedText;
-        v.literal = obj.declarations[i].initializer.text;
+        if(obj.declarations[i].initializer) { v.literal = obj.declarations[i].initializer.text; }
+        
 
        /* if(!obj.declarations[i].type.kind) {      TODO: Throw error if code is not hard typed ex let x: number
             throw new Error("Type needs to be defined for FastTS to run")
