@@ -19,7 +19,7 @@ export function TypeDefNotDefined(self, message: string, pos: number) {
     let out: string = ""
     out += NT.Bold() + NT.Red() + "type error: " + NT.Reset();
     out += NT.Bold() + "at line " + posToLine(self.rawCode, pos) + ": " +  NT.Reset()
-    out += message + "\r\n\r\n"
+    out += message + "\r\n"
 
     return out;
 }
