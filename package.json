@@ -8,7 +8,9 @@
     "main": "node dist/main.js test/sum.ts -o test/sum.o -A -V && node dist/main.js test/test.ts -o test/test.o -A -V",
     "build": "tsc",
     "build-lib": "cd lib && make",
-    "release": "pkg dist/main.js"
+    "release": "pkg dist/main.js && npm run clean-rel && npm run move-rel",
+    "move-rel": "mv main-win.exe ./bin/ftsc.exe && mv main-linux ./bin/ftsc && mv main-macos ./bin/ftsc-mac",
+    "clean-rel": "cd bin && rm *"
   },
   "repository": {
     "type": "git",

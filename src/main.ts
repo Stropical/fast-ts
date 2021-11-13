@@ -9,8 +9,6 @@ import { Assembler } from './asm/assembler'
 
 let NT = new NitroTheme();
 
-
-
 //Parse command line args
 let cliParser = new CLI(["-o"], ["-A", "-L", "-O", "-V"]) //Emit AST Tree, Emit C++ Code, Generate Obj instead of EXE, verbose
 let options = cliParser.parseArgs();
@@ -39,19 +37,19 @@ if(outOption) {
 }
 
 if(options.inputFiles.length == 0) {
-    console.log(NT.Bold() + "nitro: " + NT.Red() + "fatal error: " + NT.Reset() + "no input files")
+    console.log(NT.Bold() + "FTSC: " + NT.Red() + "fatal error: " + NT.Reset() + "no input files")
     process.exit(1);
 } else {
     options.inputFiles.forEach((file) => {
         if(!fs.existsSync(file)) {
-            console.log(NT.Bold() + "nitro: " + NT.Red() + "fatal error: " + NT.Reset() + "can't find file: " + file)
+            console.log(NT.Bold() + "FTSC: " + NT.Red() + "fatal error: " + NT.Reset() + "can't find file: " + file)
             process.exit(1);
         }
     })
 }
 
 if(!fs.existsSync(filePath)) {
-    console.log(NT.Bold() + "nitro: " + NT.Red() + "fatal error: " + NT.Reset() + "can't find out dir: " + filePath)
+    console.log(NT.Bold() + "FTSC: " + NT.Red() + "fatal error: " + NT.Reset() + "can't find out dir: " + filePath)
     process.exit(1);
 }
 
