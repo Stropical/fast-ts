@@ -1,7 +1,7 @@
 //Handles the main flow of code blocks
 
 import * as fs from 'fs'
-import { SourceFileHandle, FirstStatementHandle } from './containers'
+import { SourceFileHandle, FirstStatementHandle, ImportDeclarationHandle } from './containers'
 import { VariableDeclarationListHandle, ArcVar } from './variables'
 import { FunctionHandle, BlockHandle, ReturnHandle, CallHandle, ExpressionStatementHandle } from './function'
 import { CodeConstructor } from './contructor'
@@ -46,6 +46,7 @@ export class Builder {
         switch(obj.kind) {
             case "SourceFile": SourceFileHandle(obj, self); break;
             case "FirstStatement": FirstStatementHandle(obj, self); break;
+            case "ImportDeclaration": ImportDeclarationHandle(obj, self); break;
             case "VariableDeclarationList": VariableDeclarationListHandle(obj, self); break;
             case "FunctionDeclaration": FunctionHandle(obj, self); break;
             case "Block": BlockHandle(obj, self); break;
@@ -58,31 +59,40 @@ export class Builder {
         }
     }
 
+    
+
     start(name: string) {
         this.iterate(this.codeObj, this);
 
-        let CxxFile: string;
+        let CxxFile: string, HppFile: string;
+
         if(this.isBlock) {
             CxxFile = this.construct.finalizeBlock();
         } else {
             CxxFile = this.construct.finalizeFile();
+            HppFile = this.construct.finalizeHeader();
         }
         
         if(this.outPath) {
             fs.writeFileSync(this.outPath + '.cpp', CxxFile);
+            fs.writeFileSync(this.outPath + '.hpp', HppFile);
         }
     }
 
     finish(name: string) {
-        let CxxFile: string;
+        let CxxFile: string, HppFile: string;
+
         if(this.isBlock) {
             CxxFile = this.construct.finalizeBlock();
+            
         } else {
             CxxFile = this.construct.finalizeFile();
+            HppFile = this.construct.finalizeHeader();
         }
 
         if(this.outPath) {
             fs.writeFileSync(this.outPath + '.cpp', CxxFile);
+            fs.writeFileSync(this.outPath + '.hpp', "HppFile");
         }
         
         return CxxFile;

@@ -1,9 +1,7 @@
-export function sum(x: number, y: number): number {
-    return x + y
-}
+import { sum } from './sum'
 
-console.log(2 + 2);
-console.log(22767 + 10000);
+console.log(sum(2, 2));
+console.log(sum(22767 + 10000, 1));
 console.log(-22767 - 10000);
 console.log(-22767 + (-10000));
 

@@ -1,0 +1,138 @@
+{
+  "pos": 0,
+  "end": 72,
+  "kind": "SourceFile",
+  "statements": [
+    {
+      "pos": 0,
+      "end": 72,
+      "kind": "FunctionDeclaration",
+      "modifiers": [
+        {
+          "pos": 0,
+          "end": 6,
+          "kind": "ExportKeyword",
+          "id": 3
+        }
+      ],
+      "name": {
+        "pos": 15,
+        "end": 19,
+        "kind": "Identifier",
+        "escapedText": "sum",
+        "id": 4
+      },
+      "parameters": [
+        {
+          "pos": 20,
+          "end": 29,
+          "kind": "Parameter",
+          "name": {
+            "pos": 20,
+            "end": 21,
+            "kind": "Identifier",
+            "escapedText": "x",
+            "id": 6
+          },
+          "type": {
+            "pos": 22,
+            "end": 29,
+            "kind": "NumberKeyword",
+            "id": 7
+          },
+          "id": 5
+        },
+        {
+          "pos": 30,
+          "end": 40,
+          "kind": "Parameter",
+          "name": {
+            "pos": 30,
+            "end": 32,
+            "kind": "Identifier",
+            "escapedText": "y",
+            "id": 9
+          },
+          "type": {
+            "pos": 33,
+            "end": 40,
+            "kind": "NumberKeyword",
+            "id": 10
+          },
+          "id": 8
+        }
+      ],
+      "type": {
+        "pos": 42,
+        "end": 49,
+        "kind": "NumberKeyword",
+        "id": 11
+      },
+      "body": {
+        "pos": 49,
+        "end": 72,
+        "kind": "Block",
+        "statements": [
+          {
+            "pos": 51,
+            "end": 69,
+            "kind": "ReturnStatement",
+            "expression": {
+              "pos": 63,
+              "end": 69,
+              "kind": "BinaryExpression",
+              "left": {
+                "pos": 63,
+                "end": 65,
+                "kind": "Identifier",
+                "escapedText": "x",
+                "id": 15
+              },
+              "operatorToken": {
+                "pos": 65,
+                "end": 67,
+                "kind": "PlusToken",
+                "id": 16
+              },
+              "right": {
+                "pos": 67,
+                "end": 69,
+                "kind": "Identifier",
+                "escapedText": "y",
+                "id": 17
+              },
+              "id": 14
+            },
+            "id": 13
+          }
+        ],
+        "multiLine": true,
+        "id": 12
+      },
+      "id": 2
+    }
+  ],
+  "endOfFileToken": {
+    "pos": 72,
+    "end": 72,
+    "kind": "EndOfFileToken",
+    "id": 18
+  },
+  "fileName": "sum.ts",
+  "languageVersion": 99,
+  "languageVariant": 0,
+  "scriptKind": 3,
+  "isDeclarationFile": false,
+  "hasNoDefaultLib": false,
+  "bindDiagnostics": [],
+  "pragmas": {},
+  "referencedFiles": [],
+  "typeReferenceDirectives": [],
+  "libReferenceDirectives": [],
+  "amdDependencies": [],
+  "nodeCount": 20,
+  "identifierCount": 6,
+  "identifiers": {},
+  "parseDiagnostics": [],
+  "id": 1
+}

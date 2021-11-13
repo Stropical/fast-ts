@@ -8,6 +8,16 @@ export function FunctionHandle(obj, self) {
     self.currentFuncName = obj.name.escapedText
     self.currentLevel = DepthClass.Local;
 
+
+    let exportFlag: boolean = false;
+    let modifiers = obj.modifiers
+
+    modifiers.forEach(mod => {
+        switch (mod.kind) {
+            case "ExportKeyword": exportFlag = true
+        }
+    })
+
     self.currentReturnType = obj.type.kind;
     if(self.currentReturnType == "TypeReference") {
         self.currentReturnType = obj.type.typeName.escapedText;
@@ -20,6 +30,11 @@ export function FunctionHandle(obj, self) {
         } 
         self.currentFuncParams.push(new ArcVar(element.name.escapedText, type, ))
     });
+
+    if(exportFlag) {
+        self.construct.addExport(self.currentFuncName, self.currentFuncParams);
+    }
+
     self.iterate(obj.body, self);
 }
 
