@@ -1,0 +1,1 @@
+clang++ object_test.cpp -o object_test.o -I../include -I"C:\Users\tuhsrobotics\Downloads\rapidjson-1.1.0\rapidjson-1.1.0\include" -Wunknown-warning-option
