@@ -41,8 +41,17 @@ export class CodeConstructor {
         this.codeStr += ";\r\n";
     }
 
-    addIfStatement(condition: string, innerCode: string) {
-        this.codeStr += "if (" + condition + ") { \r\n";     
+    addIfStatement(condition: string, innerCode: string, elseIfFlag: boolean) {
+        if(elseIfFlag) {
+            this.codeStr += "else if (" + condition + ") { \r\n";    
+        } else {
+            this.codeStr += "if (" + condition + ") { \r\n";    
+        }
+        
+    }
+
+    addElseStatement(condition: string, innerCode: string) {
+        this.codeStr += "else { \r\n";     
     }
 
     finishIf() {
