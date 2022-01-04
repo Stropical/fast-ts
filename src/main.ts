@@ -5,6 +5,7 @@ import { NitroTheme } from './theme'
 import { setupErrorCode } from './error/error';
 import { AstGenerator } from './ast/ast'
 import { Builder } from './builder/builder'
+import { IRBuilder } from './ir_builder/ir_builder'
 import { Assembler } from './asm/assembler'
 
 let NT = new NitroTheme();
@@ -17,6 +18,12 @@ let options = cliParser.parseArgs();
 let verbose: boolean = false;
 if(options.options.includes('-V')) {
     verbose = true;
+}
+
+//Check if using IR
+let useIR: boolean = true;
+if(options.options.includes('-ir')) {
+    useIR = true;
 }
 
 //Setup Error Codes
@@ -65,10 +72,19 @@ if(options.options.includes('-A')) {
 }
 
 //Build code
-let builder = new Builder(AST, filePath + mainFileName, false);
-builder.verbose = verbose;
-builder.rawCode = rawCode;
-builder.start(mainFileName);
+if(useIR) {
+    console.log("Using IR Builder")
+    let builder = new IRBuilder(AST, filePath + mainFileName, false);
+    builder.verbose = verbose;
+    builder.rawCode = rawCode;
+    builder.start(mainFileName);
+} else {
+    let builder = new Builder(AST, filePath + mainFileName, false);
+    builder.verbose = verbose;
+    builder.rawCode = rawCode;
+    builder.start(mainFileName);
+}
+
 
 let asmGen = new Assembler(filePath);
 asmGen.constructObjs();

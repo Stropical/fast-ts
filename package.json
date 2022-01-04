@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node test/pretest.js && jest",
     "main": "node dist/main.js test/sum.ts -o test/sum.o -A -V && node dist/main.js test/test.ts -o test/test.o -A -V",
+    "IR": "node dist/main.js test/sum.ts -o test/sum.o -A -V -ir",
     "build": "tsc",
     "build-lib": "cd lib && make",
     "release": "pkg dist/main.js && npm run clean-rel && npm run move-rel",

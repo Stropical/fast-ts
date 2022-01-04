@@ -3,7 +3,7 @@
 #include <string>
 
 // Library includes
-#include "object.hpp"
+//#include "object.hpp"
 
 typedef int NumberKeyword;
 typedef bool BooleanKeyword;

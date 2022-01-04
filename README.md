@@ -1,3 +1,6 @@
+# IMPORTANT NOTE
+Conversion from C++ to LLVM's IR is starting, code is in full dev and not likley to be fully functional
+
 # FastTS
 Typescript is a great language, a less error prone and harder typed version of javascript. Typescript does have two downsides however, those being it is slow compared to low level languages, and it cannot interface 
 with hardware like a low level language. Why go through the struggle of trying to use the node ABI or N-API when your whole program can run faster? FastTS aims to fix both. FastTS compiles typescript down to C++, 

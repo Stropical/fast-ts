@@ -1,280 +1,57 @@
 {
   "pos": 0,
-  "end": 157,
+  "end": 43,
   "kind": "SourceFile",
   "statements": [
     {
       "pos": 0,
-      "end": 23,
-      "kind": "FirstStatement",
-      "declarationList": {
-        "pos": 0,
-        "end": 22,
-        "kind": "VariableDeclarationList",
-        "declarations": [
-          {
-            "pos": 3,
-            "end": 22,
-            "kind": "VariableDeclaration",
-            "name": {
-              "pos": 3,
-              "end": 5,
-              "kind": "Identifier",
-              "escapedText": "c",
-              "id": 5
-            },
-            "initializer": {
-              "pos": 15,
-              "end": 22,
-              "kind": "PrefixUnaryExpression",
-              "operator": 40,
-              "operand": {
-                "pos": 17,
-                "end": 22,
-                "kind": "FirstLiteralToken",
-                "text": "32767",
-                "numericLiteralFlags": 0,
-                "id": 8
-              },
-              "id": 7
-            },
-            "type": {
-              "pos": 6,
-              "end": 13,
-              "kind": "NumberKeyword",
-              "id": 6
-            },
-            "id": 4
-          }
-        ],
+      "end": 43,
+      "kind": "FunctionDeclaration",
+      "name": {
+        "pos": 8,
+        "end": 13,
+        "kind": "Identifier",
+        "escapedText": "main",
         "id": 3
       },
-      "id": 2
-    },
-    {
-      "pos": 23,
-      "end": 157,
-      "kind": "IfStatement",
-      "expression": {
-        "pos": 30,
-        "end": 35,
-        "kind": "BinaryExpression",
-        "left": {
-          "pos": 30,
-          "end": 31,
-          "kind": "Identifier",
-          "escapedText": "c",
-          "id": 11
-        },
-        "operatorToken": {
-          "pos": 31,
-          "end": 33,
-          "kind": "GreaterThanToken",
-          "id": 12
-        },
-        "right": {
-          "pos": 33,
-          "end": 35,
-          "kind": "FirstLiteralToken",
-          "text": "0",
-          "numericLiteralFlags": 0,
-          "id": 13
-        },
-        "id": 10
+      "parameters": [],
+      "type": {
+        "pos": 16,
+        "end": 23,
+        "kind": "NumberKeyword",
+        "id": 4
       },
-      "thenStatement": {
-        "pos": 36,
-        "end": 62,
+      "body": {
+        "pos": 23,
+        "end": 43,
         "kind": "Block",
         "statements": [
           {
-            "pos": 38,
-            "end": 59,
-            "kind": "ExpressionStatement",
+            "pos": 25,
+            "end": 40,
+            "kind": "ReturnStatement",
             "expression": {
-              "pos": 38,
-              "end": 58,
-              "kind": "CallExpression",
-              "expression": {
-                "pos": 38,
-                "end": 55,
-                "kind": "PropertyAccessExpression",
-                "expression": {
-                  "pos": 38,
-                  "end": 51,
-                  "kind": "Identifier",
-                  "escapedText": "console",
-                  "id": 18
-                },
-                "name": {
-                  "pos": 52,
-                  "end": 55,
-                  "kind": "Identifier",
-                  "escapedText": "log",
-                  "id": 19
-                },
-                "id": 17
-              },
-              "arguments": [
-                {
-                  "pos": 56,
-                  "end": 57,
-                  "kind": "Identifier",
-                  "escapedText": "c",
-                  "id": 20
-                }
-              ],
-              "id": 16
+              "pos": 37,
+              "end": 39,
+              "kind": "FirstLiteralToken",
+              "text": "0",
+              "numericLiteralFlags": 0,
+              "id": 7
             },
-            "id": 15
+            "id": 6
           }
         ],
         "multiLine": true,
-        "id": 14
+        "id": 5
       },
-      "elseStatement": {
-        "pos": 67,
-        "end": 157,
-        "kind": "IfStatement",
-        "expression": {
-          "pos": 72,
-          "end": 77,
-          "kind": "BinaryExpression",
-          "left": {
-            "pos": 72,
-            "end": 73,
-            "kind": "Identifier",
-            "escapedText": "c",
-            "id": 23
-          },
-          "operatorToken": {
-            "pos": 73,
-            "end": 75,
-            "kind": "GreaterThanToken",
-            "id": 24
-          },
-          "right": {
-            "pos": 75,
-            "end": 77,
-            "kind": "FirstLiteralToken",
-            "text": "1",
-            "numericLiteralFlags": 0,
-            "id": 25
-          },
-          "id": 22
-        },
-        "thenStatement": {
-          "pos": 78,
-          "end": 110,
-          "kind": "Block",
-          "statements": [
-            {
-              "pos": 79,
-              "end": 107,
-              "kind": "ExpressionStatement",
-              "expression": {
-                "pos": 79,
-                "end": 106,
-                "kind": "CallExpression",
-                "expression": {
-                  "pos": 79,
-                  "end": 96,
-                  "kind": "PropertyAccessExpression",
-                  "expression": {
-                    "pos": 79,
-                    "end": 92,
-                    "kind": "Identifier",
-                    "escapedText": "console",
-                    "id": 30
-                  },
-                  "name": {
-                    "pos": 93,
-                    "end": 96,
-                    "kind": "Identifier",
-                    "escapedText": "log",
-                    "id": 31
-                  },
-                  "id": 29
-                },
-                "arguments": [
-                  {
-                    "pos": 97,
-                    "end": 105,
-                    "kind": "StringLiteral",
-                    "text": "C is 1",
-                    "hasExtendedUnicodeEscape": false,
-                    "id": 32
-                  }
-                ],
-                "id": 28
-              },
-              "id": 27
-            }
-          ],
-          "multiLine": true,
-          "id": 26
-        },
-        "elseStatement": {
-          "pos": 115,
-          "end": 157,
-          "kind": "Block",
-          "statements": [
-            {
-              "pos": 117,
-              "end": 154,
-              "kind": "ExpressionStatement",
-              "expression": {
-                "pos": 117,
-                "end": 153,
-                "kind": "CallExpression",
-                "expression": {
-                  "pos": 117,
-                  "end": 134,
-                  "kind": "PropertyAccessExpression",
-                  "expression": {
-                    "pos": 117,
-                    "end": 130,
-                    "kind": "Identifier",
-                    "escapedText": "console",
-                    "id": 37
-                  },
-                  "name": {
-                    "pos": 131,
-                    "end": 134,
-                    "kind": "Identifier",
-                    "escapedText": "log",
-                    "id": 38
-                  },
-                  "id": 36
-                },
-                "arguments": [
-                  {
-                    "pos": 135,
-                    "end": 152,
-                    "kind": "StringLiteral",
-                    "text": "C is not 0 or 1",
-                    "hasExtendedUnicodeEscape": false,
-                    "id": 39
-                  }
-                ],
-                "id": 35
-              },
-              "id": 34
-            }
-          ],
-          "multiLine": true,
-          "id": 33
-        },
-        "id": 21
-      },
-      "id": 9
+      "id": 2
     }
   ],
   "endOfFileToken": {
-    "pos": 157,
-    "end": 157,
+    "pos": 43,
+    "end": 43,
     "kind": "EndOfFileToken",
-    "id": 40
+    "id": 8
   },
   "fileName": "test.ts",
   "languageVersion": 99,
@@ -288,8 +65,8 @@
   "typeReferenceDirectives": [],
   "libReferenceDirectives": [],
   "amdDependencies": [],
-  "nodeCount": 40,
-  "identifierCount": 10,
+  "nodeCount": 9,
+  "identifierCount": 2,
   "identifiers": {},
   "parseDiagnostics": [],
   "id": 1
