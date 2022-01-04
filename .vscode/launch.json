@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "args": ["test/test.ts", "-o", "test/test.o", "-A", "-V"],
+            "args": ["test/sum.ts", "-o", "test/sum.o", "-A", "-V", "-ir"],
             "type": "pwa-node",
             "request": "launch",
             "name": "Launch Program",

@@ -1,11 +1,11 @@
 {
   "pos": 0,
-  "end": 72,
+  "end": 89,
   "kind": "SourceFile",
   "statements": [
     {
       "pos": 0,
-      "end": 72,
+      "end": 89,
       "kind": "FunctionDeclaration",
       "modifiers": [
         {
@@ -70,40 +70,74 @@
       },
       "body": {
         "pos": 49,
-        "end": 72,
+        "end": 89,
         "kind": "Block",
         "statements": [
           {
             "pos": 51,
-            "end": 69,
-            "kind": "ReturnStatement",
-            "expression": {
-              "pos": 63,
-              "end": 69,
-              "kind": "BinaryExpression",
-              "left": {
-                "pos": 63,
-                "end": 65,
-                "kind": "Identifier",
-                "escapedText": "x",
-                "id": 15
-              },
-              "operatorToken": {
-                "pos": 65,
-                "end": 67,
-                "kind": "PlusToken",
-                "id": 16
-              },
-              "right": {
-                "pos": 67,
-                "end": 69,
-                "kind": "Identifier",
-                "escapedText": "y",
-                "id": 17
-              },
+            "end": 71,
+            "kind": "FirstStatement",
+            "declarationList": {
+              "pos": 51,
+              "end": 70,
+              "kind": "VariableDeclarationList",
+              "declarations": [
+                {
+                  "pos": 60,
+                  "end": 70,
+                  "kind": "VariableDeclaration",
+                  "name": {
+                    "pos": 60,
+                    "end": 62,
+                    "kind": "Identifier",
+                    "escapedText": "z",
+                    "id": 16
+                  },
+                  "initializer": {
+                    "pos": 64,
+                    "end": 70,
+                    "kind": "BinaryExpression",
+                    "left": {
+                      "pos": 64,
+                      "end": 66,
+                      "kind": "Identifier",
+                      "escapedText": "x",
+                      "id": 18
+                    },
+                    "operatorToken": {
+                      "pos": 66,
+                      "end": 68,
+                      "kind": "PlusToken",
+                      "id": 19
+                    },
+                    "right": {
+                      "pos": 68,
+                      "end": 70,
+                      "kind": "Identifier",
+                      "escapedText": "y",
+                      "id": 20
+                    },
+                    "id": 17
+                  },
+                  "id": 15
+                }
+              ],
               "id": 14
             },
             "id": 13
+          },
+          {
+            "pos": 71,
+            "end": 86,
+            "kind": "ReturnStatement",
+            "expression": {
+              "pos": 83,
+              "end": 85,
+              "kind": "Identifier",
+              "escapedText": "z",
+              "id": 22
+            },
+            "id": 21
           }
         ],
         "multiLine": true,
@@ -113,10 +147,10 @@
     }
   ],
   "endOfFileToken": {
-    "pos": 72,
-    "end": 72,
+    "pos": 89,
+    "end": 89,
     "kind": "EndOfFileToken",
-    "id": 18
+    "id": 23
   },
   "fileName": "sum.ts",
   "languageVersion": 99,
@@ -130,8 +164,8 @@
   "typeReferenceDirectives": [],
   "libReferenceDirectives": [],
   "amdDependencies": [],
-  "nodeCount": 20,
-  "identifierCount": 6,
+  "nodeCount": 25,
+  "identifierCount": 8,
   "identifiers": {},
   "parseDiagnostics": [],
   "id": 1

@@ -1,9 +1,12 @@
-// ARCC Generated Code
-// Version 1.0.0 
 
-#include "arc.hpp"
 
-NumberKeyword sum (NumberKeyword x, NumberKeyword y) {
-return x + y;
+unsigned int sum (unsigned int x, unsigned int y) {
+    return x + y;
+}
 
+int main () {
+    unsigned int x = 1;
+    unsigned int y = 2;
+    unsigned int z = sum (x, y);
+    return z;
 }

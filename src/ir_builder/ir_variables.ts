@@ -12,5 +12,8 @@ export class IRArcVar {
 
 export enum IRVarType {
     i8,
-    i32
+    i32,
+    NumberKeyword,
+    Identifier,
+    BinaryExpression,
 }
