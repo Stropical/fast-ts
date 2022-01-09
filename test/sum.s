@@ -12,7 +12,7 @@ __cxx_global_var_init:                  # @__cxx_global_var_init
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
 	movl	$_ZStL8__ioinit, %edi
-	callq	_ZNSt8ios_base4InitC1Ev
+	callq	_ZNSt8ios_base4InitC1Ev    
 	movl	$_ZNSt8ios_base4InitD1Ev, %edi
 	movl	$_ZStL8__ioinit, %esi
 	movl	$__dso_handle, %edx
