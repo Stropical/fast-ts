@@ -44,16 +44,17 @@ export function assembleExpression(tokArr: Array<IToken>): ParserExpression {
     } else {
         // Handle binary expressions
         let exprStr = tokArr.map(t => t.value).join("");
-        console.log(addHandle(exprStr));
-        /*
-        let extraIns: Array<IRInstruction> = BinExpHandle(exprStr);
-        console.log(binExp);
+        
+        let bnode = addHandle(exprStr);
+        nodeTreeToIR(bnode);
+        console.log(bnode, ins);
 
         let pExp = new ParserExpression("", ExprType.expression);
-        pExp.extraInstructions = extraIns;
+        pExp.extraInstructions = ins;
+        ins = [];
         
         return pExp;
-        */
+        
     }
 }
 
@@ -140,6 +141,44 @@ function addHandle(expr: any) {
     }
 }
 
-function nodeTreeToIR(baseNode: Node) {
+var ins: Array<IRInstruction> = [];
+function nodeTreeToIR(baseNode: Node): IRInstruction {
+    var op: IROp
+    
+    switch(baseNode.op) {
+        case "+": op = IROp.add; break;
+        case "-": op = IROp.sub; break;
+        case "*": op = IROp.mul; break;
+    }
+    
+    if(typeof baseNode.left == "string" && typeof baseNode.right == "string") {
+        var retIns = new IRInstruction(op, IRType.i32, [], [baseNode.left, baseNode.right]);
+        ins.push(retIns);
+        return retIns;
+    } else {
+        if(typeof baseNode.right == "object" && typeof baseNode.left == "object") {
+            var rNode = nodeTreeToIR(baseNode.right);
+            var lNode = nodeTreeToIR(baseNode.left);
 
+            var retIns = new IRInstruction(op, IRType.i32, [], ["REF:" + lNode.id, "REF:" + rNode.id]);
+            ins.push(retIns);
+            return retIns;
+        }
+
+        if(typeof baseNode.right == "object") {
+            var rNode = nodeTreeToIR(baseNode.right);
+
+            var retIns = new IRInstruction(op, IRType.i32, [], [baseNode.left, "REF:" + rNode.id]);
+            ins.push(retIns);
+            return retIns;
+        }
+
+        if(typeof baseNode.left == "object") {
+            var lNode = nodeTreeToIR(baseNode.left);
+
+            var retIns = new IRInstruction(op, IRType.i32, [], ["REF:" + lNode.id, baseNode.right]);
+            ins.push(retIns);
+            return retIns;
+        }
+    }
 }

@@ -5,13 +5,21 @@ class Declaration {
 
 }
 
-
+enum IROpCode {
+    add,
+    sub,
+    alloca,
+    store,
+    load,
+    call,
+    ret
+}
 
 class IRInstruction {
-    opcode: string;
+    opcode: IROpCode;
     args: IRArcVar[];
 
-    constructor(opcode: string, args: IRArcVar[]) {
+    constructor(opcode: IROpCode, args: IRArcVar[]) {
         this.opcode = opcode;
         this.args = args;
     }
@@ -20,11 +28,12 @@ class IRInstruction {
 }
 
 class IRFunction {
-    name: string;
+    name: string = "";
     returnType: IRVarType;
     params: Array<IRArcVar> = [];
     blocks: Array<IRBlock> = [new IRBlock()];
     localDefines: Array<IRArcVar> = [];
+    instructions: Array<IRInstruction> = [];
 
     constructor() {
 
@@ -76,6 +85,15 @@ class CodeGen {
     }
 
     renderInstruction(ins: IRInstruction): string {
+        let str: string = ''
+        let regNum: number;
+
+        switch(ins.opcode) {
+            case IROpCode.alloca: 
+                str += "%" + regNum + " = alloca " + ins.args[0] + ", align 4";
+                break;
+        }
+
         return ""
     }
 
@@ -147,17 +165,37 @@ function IRBlockHandle(obj, self) {
     });
 }
 
+function IRVarDecListHandle(obj, self) {
+    obj.declarations.forEach((dec, i) => {
+        self.iterate(dec, self);
+    });
+}
+
+function IRVarDecHandle(obj, self) {
+    if(self.currentFunc.name != "") {
+        //Current func is defined, make a local variable
+        self.currentFunc.localDefines.push(new IRArcVar(obj.name.escapedText, convertType(obj.type.kind))) 
+        self.currentFunc.instructions.push(new IRInstruction(IROpCode.alloca, self.currentFunc.localDefines[self.currentFunc.localDefines.length]))
+    } else {
+        //Global Variable
+    }
+}
+
+function FirstStatementHandle(obj, self) {
+    self.iterate(obj.declarationList, self)
+}
+
 function IRReturnStatementHandle(obj, self) {
-    let returnType: IRVarType = convertType(obj.expression.type.kind);
+    let returnType: IRVarType = convertType(obj.expression.kind);
 
     switch (returnType) {
-        case IRVarType.Identifier:  self.currentFunc.findDef(obj.expression.type.escapedText); break; //Find identifier
+        case IRVarType.Identifier: returnType = self.currentFunc.findDef(obj.expression.escapedText); break; //Find identifier
     }
 
     let returnVar: IRArcVar = new IRArcVar(obj.expression.escapedText, );
 
     if(self.currentFunc.returnType == returnVar.type) {
-        self.currentFunc.instructions.push(new IRInstruction("ret", [returnVar]));
+        self.currentFunc.instructions.push(new IRInstruction(IROpCode.ret, [returnVar]));
     } else {
         throw (new Error("Invalid return type"));
     }
@@ -190,9 +228,11 @@ export class IRBuilder {
         if(this.verbose) { console.log(obj.kind) }
         switch(obj.kind) {
             case "SourceFile": IRSourceFileHandle(obj, self); break;
+            case "FirstStatement": FirstStatementHandle(obj, self); break;
             case "FunctionDeclaration": IRFuncHandle(obj, self); break;
             case "Block": IRBlockHandle(obj, self); break;
-            case "VariableDeclarationList": IRReturnStatementHandle(obj, self); break;
+            case "VariableDeclarationList": IRVarDecListHandle(obj, self); break;
+            case "VariableDeclaration": IRVarDecHandle(obj, self); break;
             case "ReturnStatement": IRReturnStatementHandle(obj, self); break;
         }
     }

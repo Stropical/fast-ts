@@ -77,11 +77,7 @@ export class IRInstruction {
     args: Array<any>;
     id: number;
 
-    irOps: Array<Object> = [
-        {"op": "add", "type": "i32", "operands": ["i32", "i32"]},
-    ];
-
-    constructor(public _op: IROp, public _type: IRType, public _attributes: IRAttribute[], _args?: Array<any>) {
+    constructor(_op: IROp, _type: IRType, _attributes: IRAttribute[], _args?: Array<any>) {
         this.op = _op;
         this.type = _type;
         this.attributes = _attributes;
@@ -117,6 +113,7 @@ export class IRDeclare {
 
 export enum IROp {
     add = "add",
+    sub = "sub",
     mul = "mul",
     call = "call",
     alloca = "alloca",
@@ -146,6 +143,7 @@ export class IRModule {
     private imports: Array<IRDeclare> = [];
     private functions: Array<IRFunction> = [];
     private currentRegNum: number = 1;
+    private refRegPairs: Map<number, number> = new Map();
 
     constructor(public _name: string, public _target: TargetType) {
         this.name = _name;
@@ -167,6 +165,21 @@ export class IRModule {
         }
     }
 
+    convertReference(str: String) {
+        console.log("Converting reference: " + JSON.stringify(str))
+        if(str.startsWith("REF:")) {
+            return "%" + this.refRegPairs.get(parseInt(str.substring(4)))
+        } else {
+            return str;
+        }
+    }
+
+    getNextReg() {
+        this.currentRegNum++
+        this.refRegPairs.set(this.currentRegNum, this.currentRegNum)
+        return `%${this.currentRegNum}`;
+    }
+
     //Render the module
     renderHeader() {
         return `; ModuleID = "${this.name}"
@@ -176,7 +189,8 @@ target triple = "${this.convertTarget(this.target)}"`
     }
 
     renderParameters(params: Array<IRVariable>) {
-        return params.map(importDeclare => importDeclare.name.toString() + " " + importDeclare.type.toString() + " " + importDeclare.attributes.map(atr => atr.type.toString()).join(" ")).join(", ");
+        return params.map((importDeclare) => importDeclare.type.toString() + " " + this.getNextReg() + " " +importDeclare.attributes.map(atr => atr.type.toString()).join(" ")).join(", ");
+        
     }
 
     renderImports() {
@@ -190,17 +204,17 @@ target triple = "${this.convertTarget(this.target)}"`
     }
 
     renderInstruction(instruction: IRInstruction): Object {
-        let regNum = this.currentRegNum;
+        let regNum = this.currentRegNum++;
+        console.log(this.refRegPairs);
 
         switch (instruction.op) {
             case IROp.alloca:
                 let attrs: string = instruction.attributes.map(atr => atr.toIRString()).join(", ");
                 if(attrs.length > 0) { attrs = ", " + attrs; }
-                this.currentRegNum++;
                 return `\t%${this.currentRegNum - 1} = alloca ${instruction.type}${attrs}`;
                 break;
             case IROp.ret:
-                if (instruction.args[0] == "lastReg") { instruction.args[0] = "%" + (regNum); }
+                if (instruction.args[0] == "lastReg") { instruction.args[0] = "%" + (regNum - 1); }
                 return `\tret ${instruction.type} ${instruction.args[0]}`;
                 break;
             case IROp.call:
@@ -217,10 +231,16 @@ target triple = "${this.convertTarget(this.target)}"`
                 return `\t%${regNum} = call ${instruction.type} @${instruction.args[0]}(${callArgs})`;
                 break;
             case IROp.add:
-                return `\t%${regNum} = add ${instruction.type} ${instruction.args[0]} ${instruction.args[1]}`;
+                this.refRegPairs.set(instruction.id, regNum);
+                return `\t%${regNum} = add ${instruction.type} ${this.convertReference(instruction.args[0])} ${this.convertReference(instruction.args[1])}`;
+                break;
+            case IROp.sub:
+                this.refRegPairs.set(instruction.id, regNum);
+                return `\t%${regNum} = sub ${instruction.type} ${this.convertReference(instruction.args[0])} ${this.convertReference(instruction.args[1])}`;
                 break;
             case IROp.mul:
-                return `\t%${regNum} = mul ${instruction.type} ${instruction.args[0]} ${instruction.args[1]}`;
+                this.refRegPairs.set(instruction.id, regNum);
+                return `\t%${regNum} = mul ${instruction.type} ${this.convertReference(instruction.args[0])} ${this.convertReference(instruction.args[1])}`;
                 break;
             default: return ""; break;
         }
@@ -230,7 +250,9 @@ target triple = "${this.convertTarget(this.target)}"`
         let tempString: string = "";
 
         this.functions.forEach(func => { 
+            this.currentRegNum = -1;
             tempString += `define dso_local ${func.type.toString()} @${func.name}(${this.renderParameters(func.params)}) { \r\n`
+            this.currentRegNum += 2;
             tempString += func.ins.map(ins => this.renderInstruction(ins)).join("\n");
             tempString += "\r\n}\r\n\r\n"
         });
