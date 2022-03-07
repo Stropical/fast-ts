@@ -1,94 +1,15 @@
-import * as fs from 'fs';
-import * as path from 'path'
-import { Config, CLI } from './cli'
-import { NitroTheme } from './theme'
-import { setupErrorCode } from './error/error';
-import { AstGenerator } from './ast/ast'
-import { Builder } from './builder/builder'
-import { IRBuilder } from './ir_builder/ir_builder'
-import { Assembler } from './asm/assembler'
+import { IToken } from '@msnraju/lexer';
+import { lex } from './lexer';
+import { ArcParse } from './parser';
+import { IRModule } from './codegen'
 
-let NT = new NitroTheme();
+let tokens: Array<IToken> = lex(`
+    func sum(x: i32, y: i32): i32 {
+        let x: i32 = 10;
+        ret x + 1 - 1 * 1 + 2;
+    }
+`);
 
-//Parse command line args
-let cliParser = new CLI(["-o"], ["-A", "-L", "-O", "-V"]) //Emit AST Tree, Emit C++ Code, Generate Obj instead of EXE, verbose
-let options = cliParser.parseArgs();
+let mod: IRModule = ArcParse(tokens);
 
-//Check if verbose
-let verbose: boolean = false;
-if(options.options.includes('-V')) {
-    verbose = true;
-}
-
-//Check if using IR
-let useIR: boolean = true;
-if(options.options.includes('-ir')) {
-    useIR = true;
-}
-
-//Setup Error Codes
-setupErrorCode(verbose);
-
-
-//Get mainfile name
-let mainFileName: string = "main", filePath: string;
-let outOption: string, outObj: Object = options.options.find(e => e = "-o");
-if(outObj) { outOption = outObj['-o'] }
-
-if(outOption) {
-    let lastSlash = outOption.lastIndexOf('/');
-    let lastDot = outOption.lastIndexOf('.');
-
-    filePath = outOption.substring(0, lastSlash + 1);
-    mainFileName = outOption.substring(lastSlash + 1, lastDot);
-}
-
-if(options.inputFiles.length == 0) {
-    console.log(NT.Bold() + "FTSC: " + NT.Red() + "fatal error: " + NT.Reset() + "no input files")
-    process.exit(1);
-} else {
-    options.inputFiles.forEach((file) => {
-        if(!fs.existsSync(file)) {
-            console.log(NT.Bold() + "FTSC: " + NT.Red() + "fatal error: " + NT.Reset() + "can't find file: " + file)
-            process.exit(1);
-        }
-    })
-}
-
-if(!fs.existsSync(filePath)) {
-    console.log(NT.Bold() + "FTSC: " + NT.Red() + "fatal error: " + NT.Reset() + "can't find out dir: " + filePath)
-    process.exit(1);
-}
-
-// ##### Start code generation #####
-//AST GEN
-let rawCode = fs.readFileSync(options.inputFiles[0], 'utf-8')
-let ASTGen = new AstGenerator(mainFileName + '.ts', rawCode);
-let AST = JSON.parse(ASTGen.generateAST());
-let AstOut = JSON.stringify(AST, null, 2);
-
-if(options.options.includes('-A')) {
-    fs.writeFileSync(filePath + mainFileName + '.json', AstOut);
-}
-
-//Build code
-if(useIR) {
-    console.log("Using IR Builder")
-    let builder = new IRBuilder(AST, filePath + mainFileName, false);
-    builder.verbose = verbose;
-    builder.rawCode = rawCode;
-    builder.start(mainFileName);
-} else {
-    let builder = new Builder(AST, filePath + mainFileName, false);
-    builder.verbose = verbose;
-    builder.rawCode = rawCode;
-    builder.start(mainFileName);
-}
-
-
-let asmGen = new Assembler(filePath);
-asmGen.constructObjs();
-
-//End code generation
-
-//Write final files
+console.log(mod.renderModule());

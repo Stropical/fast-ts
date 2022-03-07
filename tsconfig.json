@@ -1,10 +1,26 @@
 {
     "compilerOptions": {
-      "removeComments": true,
-      "preserveConstEnums": true,
+      "allowJs": false,
+      "moduleResolution": "node",
+      "target": "es5",
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "noUnusedLocals": true,
+      "pretty": true,
+      "strict": false,
+      "sourceMap": true,
       "outDir": "./dist",
-      "sourceMap": true
+      "skipLibCheck": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "declaration": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules", "**/*.spec.ts"]
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "dist",
+    ],
+    "compileOnSave": false
   }

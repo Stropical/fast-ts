@@ -1,43 +1,24 @@
 {
-  "name": "nitro-lang",
+  "name": "ArcLang",
   "version": "1.0.0",
-  "description": "Combining high level typing and low level compilation to make typescript like code that runs at bare metal speeds",
-  "main": "index.js",
+  "description": "",
+  "main": "codegen.js",
   "scripts": {
-    "test": "node test/pretest.js && jest",
-    "main": "node dist/main.js test/sum.ts -o test/sum.o -A -V && node dist/main.js test/test.ts -o test/test.o -A -V",
-    "IR": "node dist/main.js test/sum.ts -o test/sum.o -A -V -ir",
     "build": "tsc",
-    "build-lib": "cd lib && make",
-    "release": "pkg dist/main.js && npm run clean-rel && npm run move-rel",
-    "move-rel": "mv main-win.exe ./bin/ftsc.exe && mv main-linux ./bin/ftsc && mv main-macos ./bin/ftsc-mac",
-    "clean-rel": "cd bin && rm *"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Stropical/nitro-lang.git"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Stropical/nitro-lang/issues"
-  },
-  "homepage": "https://github.com/Stropical/nitro-lang#readme",
-  "dependencies": {
-    "@types/node": "^16.11.6",
-    "async": "^3.2.2",
-    "async-foreach": "^0.1.3",
-    "colors": "^1.4.0",
-    "pkg": "^5.4.1",
-    "shelljs": "^0.8.4",
-    "tsc": "^2.0.3"
-  },
-  "bin": "./bin/",
   "devDependencies": {
-    "@types/jest": "^27.0.2",
-    "jest": "^27.3.1",
-    "ts-jest": "^27.0.7",
-    "typescript": "^4.5.2"
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.7",
+    "ts-jest": "^27.1.2"
+  },
+  "dependencies": {
+    "@msnraju/lexer": "^1.0.7",
+    "abstract-syntax-tree": "^2.20.5",
+    "most-trees": "^2.2.0",
+    "typescript": "^4.5.4"
   }
 }
