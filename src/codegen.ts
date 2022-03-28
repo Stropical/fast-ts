@@ -2,6 +2,7 @@ export enum IRType {
     i8 = "i8",
     i8Ptr = "i8*",
     i32 = "i32",
+    i32Ptr = "i32*",
     float = "float",
     triDot = "...",
 }
@@ -176,6 +177,13 @@ export class IRModule {
         }
     }
 
+    convertToPointer(type: IRType): IRType {
+        switch(type) {
+            case IRType.i32: return IRType.i32Ptr; break;
+            default: return IRType.i32Ptr;
+        }
+    }
+
     getNextReg() {
         this.currentRegNum++
         this.refRegPairs.set(this.currentRegNum, this.currentRegNum)
@@ -218,7 +226,7 @@ target triple = "${this.convertTarget(this.target)}"`
             case IROp.store:
                 let sAttrs: string = instruction.attributes.map(atr => atr.toIRString()).join(", ");
                 if(sAttrs.length > 0) { sAttrs = ", " + sAttrs; }
-                return `\t%${this.currentRegNum - 1} = store ${instruction.type}${sAttrs}`;
+                return `\t%${this.currentRegNum - 1} = store ${instruction.type} ${instruction.args[0]}, ${this.convertToPointer(instruction.type)} %${this.currentRegNum - 2}${sAttrs}`;
                 break;   
             case IROp.ret:
                 if (instruction.args[0] == "lastReg") { instruction.args[0] = "%" + (regNum - 1); }

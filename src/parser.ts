@@ -122,6 +122,7 @@ function renderInnerFunction(tok: IToken, currentFunc: IRFunction): Array<IRInst
             // Check if last token is semicolon, then parse line
             
             switch(line[0].type) {
+                // Handle variable parsing
                 case "LET":
                     let varName: string = line[1].value;
                     let varType: IRType = IRType[line[3].value];
@@ -131,7 +132,7 @@ function renderInnerFunction(tok: IToken, currentFunc: IRFunction): Array<IRInst
 
                     currentInstructions.push(new IRInstruction(IROp.alloca, IRType.i32, [ new IRAttribute(IRAttrType.align, 4)], []));
 
-                    if(line[4].type == "EQUALS") {
+                    if(line[4] && line[4].type == "EQUALS") {
                         //Handle literal assingment
                         currentInstructions.push(new IRInstruction(IROp.store, IRType.i32, [ new IRAttribute(IRAttrType.align, 4)], [line[5].value, varValue.name]));
                     }

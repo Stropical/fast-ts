@@ -5,7 +5,7 @@ import { IRModule } from './codegen'
 
 let tokens: Array<IToken> = lex(`
     func sum(x: i32, y: i32): i32 {
-        let x: i32 = 10;
+        let x: i32;
         ret x + 1 - 1 * 1 + 2;
     }
 `);
